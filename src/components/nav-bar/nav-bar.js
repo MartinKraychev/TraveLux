@@ -1,11 +1,11 @@
+import { Link } from "react-router-dom"
+
+
 export const NavBar = () => {
     return (
         <div className="container-fluid nav-bar bg-transparent">
             <nav className="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
-                <a
-                    href="index.html"
-                    className="navbar-brand d-flex align-items-center text-center"
-                >
+                <Link className="navbar-brand d-flex align-items-center text-center" to="/">
                     <div className="icon p-2 me-2">
                         <img
                             className="img-fluid"
@@ -15,7 +15,7 @@ export const NavBar = () => {
                         />
                     </div>
                     <h1 className="m-0 text-primary">TraveLux</h1>
-                </a>
+                </Link>
                 <button
                     type="button"
                     className="navbar-toggler"
@@ -26,58 +26,26 @@ export const NavBar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className="navbar-nav ms-auto">
-                        <a href="index.html" className="nav-item nav-link active">
-                            Home
-                        </a>
-                        <a href="about.html" className="nav-item nav-link">
-                            About
-                        </a>
-                        <div className="nav-item dropdown">
-                            <a
-                                href="#"
-                                className="nav-link dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                            >
-                                Property
-                            </a>
-                            <div className="dropdown-menu rounded-0 m-0">
-                                <a href="property-list.html" className="dropdown-item">
-                                    Property List
-                                </a>
-                                <a href="property-type.html" className="dropdown-item">
-                                    Property Type
-                                </a>
-                                <a href="property-agent.html" className="dropdown-item">
-                                    Property Agent
-                                </a>
-                            </div>
-                        </div>
-                        <div className="nav-item dropdown">
-                            <a
-                                href="#"
-                                className="nav-link dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                            >
-                                Pages
-                            </a>
-                            <div className="dropdown-menu rounded-0 m-0">
-                                <a href="testimonial.html" className="dropdown-item">
-                                    Testimonial
-                                </a>
-                                <a href="404.html" className="dropdown-item">
-                                    404 Error
-                                </a>
-                            </div>
-                        </div>
-                        <a href="contact.html" className="nav-item nav-link">
+                        <Link to="/catalog" className="nav-item nav-link">
+                            Catalog
+                        </Link>
+                        <Link to="/team" className="nav-item nav-link">
+                            Meet the team
+                        </Link>
+                        <Link to="/testimonial" className="nav-item nav-link">
+                            Testimonial
+                        </Link>
+                        <Link to="/contact" className="nav-item nav-link">
                             Contact
-                        </a>
+                        </Link>
                     </div>
-                    <a href="" className="btn btn-primary px-3 d-none d-lg-flex">
+                    <Link to="/add-property" className="btn btn-primary px-3 d-none d-lg-flex">
                         Add Property
-                    </a>
+                    </Link>
                 </div>
             </nav>
         </div>
+
+
     )
 }

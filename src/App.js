@@ -1,10 +1,11 @@
-import { About } from "./components/about/about";
+import { Routes, Route } from "react-router-dom"
+
+import { Home } from "./components/home/home";
 import { Contact } from "./components/contact/contact";
 import { Footer } from "./components/footer/footer";
 import { Header } from "./components/header/header";
 import { NavBar } from "./components/nav-bar/nav-bar";
 import { PropertyCatalogList } from "./components/property-components/property-catalog-list/property-catalog-list";
-import { Search } from "./components/search/search";
 import { Spinner } from "./components/spinner/spinner";
 import { Team } from "./components/team/team";
 import { Testemonial } from "./components/testemonial/testemonial";
@@ -15,18 +16,15 @@ function App() {
 			<div className="container-xxl bg-white p-0">
 				{/* <Spinner /> */}
 				<NavBar />
-				<Header />
-				<Search />
-				<About />
-				<PropertyCatalogList />
-				<Team />
-				<Testemonial />
-				<Contact />
+				{/* <Header /> */}
+				<Routes>
+					<Route path="/" element={<Home />}></Route>
+					<Route path="/catalog" element={<PropertyCatalogList />}></Route>
+					<Route path="/team" element={<Team />}></Route>
+					<Route path="/testimonial" element={<Testemonial />}></Route>
+					<Route path="/contact" element={<Contact />}></Route>
+				</Routes>
 				<Footer />
-				{/* Back to Top */}
-				<a href="#" className="btn btn-lg btn-primary btn-lg-square back-to-top">
-					<i className="bi bi-arrow-up" />
-				</a>
 			</div>
 		</div>
 	);
