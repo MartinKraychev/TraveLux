@@ -1,5 +1,5 @@
 import { PropertyListItem } from "../property-list-item/property-list-item"
-import { Search } from "../../search/search";
+import { Search } from "../../base-components/search/search";
 
 export const PropertyCatalogList = () => {
     return (

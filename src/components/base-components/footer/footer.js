@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export const Footer = () => {
     return (
         <div
@@ -5,8 +7,8 @@ export const Footer = () => {
             data-wow-delay="0.1s"
         >
             <div className="container py-5">
-                <div className="row g-5">
-                    <div className="col-lg-3 col-md-6">
+                <div className="footer-row">
+                    <div className="col-lg-3 col-md-6 items-centered" >
                         <h5 className="text-white mb-4">Get In Touch</h5>
                         <p className="mb-2">
                             <i className="fa fa-map-marker-alt me-3" />
@@ -35,7 +37,7 @@ export const Footer = () => {
                             </a>
                         </div>
                     </div>
-                    <div className="col-lg-3 col-md-6">
+                    <div className="col-lg-3 col-md-6 items-centered">
                         <h5 className="text-white mb-4">Quick Links</h5>
                         <a className="btn btn-link text-white-50" href="">
                             About Us
@@ -105,10 +107,8 @@ export const Footer = () => {
             <div className="container">
                 <div className="copyright">
                     <div className="row">
-                        <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            <div className="border-bottom">
-                                TraveLux
-                            </div>
+                        <div className="footer-end">
+                            TraveLux
                         </div>
                     </div>
                 </div>

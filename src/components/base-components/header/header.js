@@ -20,9 +20,9 @@ export const Header = () => {
                         <div className="owl-carousel-item">
                             <img className="img-fluid" src="img/carousel-1.jpg" alt="" />
                         </div>
-                        <div className="owl-carousel-item">
+                        {/* <div className="owl-carousel-item">
                             <img className="img-fluid" src="img/carousel-2.jpg" alt="" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

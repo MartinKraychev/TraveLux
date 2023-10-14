@@ -26,15 +26,27 @@ export const NavBar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className="navbar-nav ms-auto">
+                        <Link to="/login" className="nav-item nav-link">
+                            Login
+                        </Link>
+                        <Link to="/register" className="nav-item nav-link">
+                            Register
+                        </Link>
+                        <Link to="/logout" className="nav-item nav-link">
+                            Loout
+                        </Link>
+                        <Link to="/my-properties" className="nav-item nav-link">
+                            My properties
+                        </Link>
                         <Link to="/catalog" className="nav-item nav-link">
                             Catalog
                         </Link>
                         <Link to="/team" className="nav-item nav-link">
                             Meet the team
                         </Link>
-                        <Link to="/testimonial" className="nav-item nav-link">
+                        {/* <Link to="/testimonial" className="nav-item nav-link">
                             Testimonial
-                        </Link>
+                        </Link> */}
                         <Link to="/contact" className="nav-item nav-link">
                             Contact
                         </Link>
