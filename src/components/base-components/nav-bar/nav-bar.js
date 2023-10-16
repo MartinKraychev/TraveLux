@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"
-
+import styles from "./nav-bar.module.css"
 
 export const NavBar = () => {
     return (
-        <div className="container-fluid nav-bar bg-transparent">
-            <nav className="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
+        <div className={`container-fluid bg-transparent ${styles['nav-bar']}`}>
+            <nav className={`navbar-expand-lg bg-white navbar-light py-0 px-4 ${styles['navbar']}`}>
                 <Link className="navbar-brand d-flex align-items-center text-center" to="/">
-                    <div className="icon p-2 me-2">
+                    <div className={`p-2 me-2  ${styles['icon']}`}>
                         <img
                             className="img-fluid"
                             src="img/icon-deal.png"
@@ -25,33 +25,33 @@ export const NavBar = () => {
                     <span className="navbar-toggler-icon" />
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
-                    <div className="navbar-nav ms-auto">
-                        <Link to="/login" className="nav-item nav-link">
+                    <div className={`ms-auto ${styles['navbar-nav']}`}>
+                        <Link to="/login" className={`nav-item ${styles['nav-link']}`}>
                             Login
                         </Link>
-                        <Link to="/register" className="nav-item nav-link">
+                        <Link to="/register" className={`nav-item ${styles['nav-link']}`}>
                             Register
                         </Link>
-                        <Link to="/logout" className="nav-item nav-link">
+                        <Link to="/logout" className={`nav-item ${styles['nav-link']}`}>
                             Loout
                         </Link>
-                        <Link to="/my-properties" className="nav-item nav-link">
+                        <Link to="/my-properties" className={`nav-item ${styles['nav-link']}`}>
                             My properties
                         </Link>
-                        <Link to="/catalog" className="nav-item nav-link">
+                        <Link to="/catalog" className={`nav-item ${styles['nav-link']}`}>
                             Catalog
                         </Link>
-                        <Link to="/team" className="nav-item nav-link">
+                        <Link to="/team" className={`nav-item ${styles['nav-link']}`}>
                             Meet the team
                         </Link>
                         {/* <Link to="/testimonial" className="nav-item nav-link">
                             Testimonial
                         </Link> */}
-                        <Link to="/contact" className="nav-item nav-link">
+                        <Link to="/contact" className={`nav-item ${styles['nav-link']}`}>
                             Contact
                         </Link>
                     </div>
-                    <Link to="/add-property" className="btn btn-primary px-3 d-none d-lg-flex">
+                    <Link to="/add-property" className={`btn btn-primary px-3 d-none d-lg-flex ${styles['add-btn']}`}>
                         Add Property
                     </Link>
                 </div>

@@ -4,7 +4,6 @@ import { Search } from "../../base-components/search/search";
 export const PropertyCatalogList = () => {
     return (
         <>
-            <Search />
             <div className="container-xxl py-5">
                 <div className="container">
                     <div className="row g-0 gx-5 align-items-end">
@@ -24,36 +23,8 @@ export const PropertyCatalogList = () => {
                             className="col-lg-6 text-start text-lg-end wow slideInRight"
                             data-wow-delay="0.1s"
                         >
-                            <ul className="nav nav-pills d-inline-flex justify-content-end mb-5">
-                                <li className="nav-item me-2">
-                                    <a
-                                        className="btn btn-outline-primary active"
-                                        data-bs-toggle="pill"
-                                        href="#tab-1"
-                                    >
-                                        Featured
-                                    </a>
-                                </li>
-                                <li className="nav-item me-2">
-                                    <a
-                                        className="btn btn-outline-primary"
-                                        data-bs-toggle="pill"
-                                        href="#tab-2"
-                                    >
-                                        For Sell
-                                    </a>
-                                </li>
-                                <li className="nav-item me-0">
-                                    <a
-                                        className="btn btn-outline-primary"
-                                        data-bs-toggle="pill"
-                                        href="#tab-3"
-                                    >
-                                        For Rent
-                                    </a>
-                                </li>
-                            </ul>
                         </div>
+                        <Search />
                     </div>
                     <div className="tab-content">
                         <div id="tab-1" className="tab-pane fade show p-0 active">

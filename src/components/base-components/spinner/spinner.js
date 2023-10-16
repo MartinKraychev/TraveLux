@@ -1,8 +1,9 @@
+import styles from "./spinner.module.css"
+
 export const Spinner = () => {
     return (
         <div
-            id="spinner"
-            className="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+            className={`show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center ${styles['spinner']}`}
         >
             <div
                 className="spinner-border text-primary"

@@ -1,48 +1,35 @@
+import styles from "./property-list-item.module.css"
+import { Link } from "react-router-dom"
+
 export const PropertyListItem = () => {
     return (
         <div
             className="col-lg-4 col-md-6 wow fadeInUp"
             data-wow-delay="0.1s"
-        >
-            <div className="property-item rounded overflow-hidden">
-                <div className="position-relative overflow-hidden">
-                    <a href="">
+        >   <Link to="/catalog/1">
+                <div className={`rounded overflow-hidden ${styles['property-item']}`}>
+                    <div className="position-relative overflow-hidden">
                         <img
-                            className="img-fluid"
+                            className={`img-fluid ${styles['img']}`}
                             src="img/property-1.jpg"
                             alt=""
                         />
-                    </a>
-                    <div className="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
-                        For Sell
+                        <div className="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                            Appartment
+                        </div>
                     </div>
-                    <div className="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
-                        Appartment
+                    <div className="p-4 pb-0">
+                        <h5 className="text-primary mb-3">$12,345</h5>
+                        <p className="d-block h5 mb-2">
+                            Golden Urban House For Sell
+                        </p>
+                        <p>
+                            <i className="fa fa-map-marker-alt text-primary me-2" />
+                            123 Street, New York, USA
+                        </p>
                     </div>
                 </div>
-                <div className="p-4 pb-0">
-                    <h5 className="text-primary mb-3">$12,345</h5>
-                    <a className="d-block h5 mb-2" href="">
-                        Golden Urban House For Sell
-                    </a>
-                    <p>
-                        <i className="fa fa-map-marker-alt text-primary me-2" />
-                        123 Street, New York, USA
-                    </p>
-                </div>
-                <div className="d-flex border-top">
-                    <small className="flex-fill text-center border-end py-2">
-                        <i className="fa fa-ruler-combined text-primary me-2" />
-                        1000 Sqft
-                    </small>
-                    <small className="flex-fill text-center border-end py-2">
-                        <i className="fa fa-bed text-primary me-2" />3 Bed
-                    </small>
-                    <small className="flex-fill text-center py-2">
-                        <i className="fa fa-bath text-primary me-2" />2 Bath
-                    </small>
-                </div>
-            </div>
+            </Link>
         </div>
     )
 }

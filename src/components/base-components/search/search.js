@@ -1,9 +1,10 @@
+import styles from "./search.module.css"
+
 export const Search = () => {
     return (
         <div
-            className="container-fluid bg-primary mb-5 wow fadeIn"
+            className={`container-fluid bg-primary mb-5 wow fadeIn ${styles['container']}`}
             data-wow-delay="0.1s"
-            style={{ padding: 35 }}
         >
             <div className="container">
                 <div className="row g-2">
@@ -12,12 +13,12 @@ export const Search = () => {
                             <div className="col-md-4">
                                 <input
                                     type="text"
-                                    className="form-control border-0 py-3"
+                                    className="form-control border-0 "
                                     placeholder="Search Keyword"
                                 />
                             </div>
                             <div className="col-md-4">
-                                <select className="form-select border-0 py-3">
+                                <select className="form-select border-0 ">
                                     <option selected="">Property Type</option>
                                     <option value={1}>Property Type 1</option>
                                     <option value={2}>Property Type 2</option>
@@ -25,7 +26,7 @@ export const Search = () => {
                                 </select>
                             </div>
                             <div className="col-md-4">
-                                <select className="form-select border-0 py-3">
+                                <select className="form-select border-0 ">
                                     <option selected="">Location</option>
                                     <option value={1}>Location 1</option>
                                     <option value={2}>Location 2</option>
@@ -35,7 +36,7 @@ export const Search = () => {
                         </div>
                     </div>
                     <div className="col-md-2">
-                        <button className="btn btn-dark border-0 w-100 py-3">Search</button>
+                        <button className="btn btn-dark border-0 w-100 ">Search</button>
                     </div>
                 </div>
             </div>

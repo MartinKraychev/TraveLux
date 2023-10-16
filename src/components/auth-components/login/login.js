@@ -1,27 +1,40 @@
 import { Link } from "react-router-dom"
+import styles from "./login.module.css"
 
 export const Login = () => {
     return (
-        <section id="login-page">
-            <form id="login">
-                <div className="container">
-                    <h1>Login</h1>
-                    <label htmlFor="email">Email:</label>
+        <section className={styles['login-page']}>
+            <form className={styles['login']}>
+                <div className={styles['container']}>
+                    <h1 className={styles['title']}>Login</h1>
+                    <label 
+                        className={styles['label']} 
+                        htmlFor="email">Email:
+                    </label>
                     <input
+                        className={styles['input']}
                         type="email"
                         id="email"
                         name="email"
                     />
-                    <label htmlFor="password">Password:</label>
+                    <label 
+                        className={styles['label']} 
+                        htmlFor="password">Password:
+                    </label>
                     <input 
+                        className={styles['input']}
                         type="password" 
                         id="password" 
                         name="password" 
                     />
-                    <input type="submit" className="btn submit" value="Login" />
-                    <p className="field">
+                    <input 
+                        type="submit" 
+                        className={styles['btn-submit']} 
+                        value="Login" 
+                    />
+                    <p className={styles['field']}>
                         <span>
-                            If you are not yet registered, click <Link to="/register">here</Link>
+                            If you are not yet registered, click <Link to="/register" className={styles['link']}>here</Link>
                         </span>
                     </p>
                 </div>

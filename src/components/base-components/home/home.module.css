@@ -1,0 +1,35 @@
+.img-left {
+    position: relative;
+    z-index: 2;
+}
+
+.about-img-left::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background: #00B98E;
+    transform: skew(20deg);
+    z-index: 1;
+}
+
+
+.img-right {
+    position: relative;
+    z-index: 2;
+    width: 93%
+}
+
+.about-img-right::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: #00B98E;
+    transform: skew(20deg);
+    z-index: 1;
+}

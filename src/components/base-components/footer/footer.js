@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import styles from "./footer.module.css"
 
 export const Footer = () => {
     return (
@@ -7,8 +8,8 @@ export const Footer = () => {
             data-wow-delay="0.1s"
         >
             <div className="container py-5">
-                <div className="footer-row">
-                    <div className="col-lg-3 col-md-6 items-centered" >
+                <div className={styles['footer-row']}>
+                    <div className={`col-lg-3 col-md-6 ${styles['items-centered']}`} >
                         <h5 className="text-white mb-4">Get In Touch</h5>
                         <p className="mb-2">
                             <i className="fa fa-map-marker-alt me-3" />
@@ -23,37 +24,34 @@ export const Footer = () => {
                             martinkraychev987@gmail.com
                         </p>
                         <div className="d-flex pt-2">
-                            <a className="btn btn-outline-light btn-social" href="https://twitter.com">
+                            <a className={`btn btn-outline-light ${styles['btn-social']}`} href="https://twitter.com">
                                 <i className="fab fa-twitter" />
                             </a>
-                            <a className="btn btn-outline-light btn-social" href="https://facebook.com">
+                            <a className={`btn btn-outline-light ${styles['btn-social']}`} href="https://facebook.com">
                                 <i className="fab fa-facebook-f" />
                             </a>
-                            <a className="btn btn-outline-light btn-social" href="https://youtube.com">
+                            <a className={`btn btn-outline-light ${styles['btn-social']}`} href="https://youtube.com">
                                 <i className="fab fa-youtube" />
                             </a>
-                            <a className="btn btn-outline-light btn-social" href="https://linkedin.com">
+                            <a className={`btn btn-outline-light ${styles['btn-social']}`} href="https://linkedin.com">
                                 <i className="fab fa-linkedin-in" />
                             </a>
                         </div>
                     </div>
-                    <div className="col-lg-3 col-md-6 items-centered">
+                    <div className={`col-lg-3 col-md-6 ${styles['items-centered']}`}>
                         <h5 className="text-white mb-4">Quick Links</h5>
-                        <a className="btn btn-link text-white-50" href="">
-                            About Us
-                        </a>
-                        <a className="btn btn-link text-white-50" href="">
+                        <Link className={`btn text-white-50 ${styles['btn-link']}`} to="/" onClick={() => window.scroll(0,0)}>
+                            Home
+                        </Link>
+                        <Link className={`btn text-white-50 ${styles['btn-link']}`} to="/contact" onClick={() => window.scroll(0,0)}>
                             Contact Us
-                        </a>
-                        <a className="btn btn-link text-white-50" href="">
-                            Our Services
-                        </a>
-                        <a className="btn btn-link text-white-50" href="">
-                            Privacy Policy
-                        </a>
-                        <a className="btn btn-link text-white-50" href="">
-                            Terms &amp; Condition
-                        </a>
+                        </Link>
+                        <Link className={`btn text-white-50 ${styles['btn-link']}`} to="/team" onClick={() => window.scroll(0,0)}>
+                            Our Team
+                        </Link>
+                        <Link className={`btn text-white-50 ${styles['btn-link']}`} to="/catalog" onClick={() => window.scroll(0,0)}>
+                            Catalog
+                        </Link>
                     </div>
                     <div className="col-lg-3 col-md-6">
                         <h5 className="text-white mb-4">Photo Gallery</h5>
@@ -105,9 +103,9 @@ export const Footer = () => {
                 </div>
             </div>
             <div className="container">
-                <div className="copyright">
+                <div className={styles['copyright']}>
                     <div className="row">
-                        <div className="footer-end">
+                        <div className={styles['footer-end']}>
                             TraveLux
                         </div>
                     </div>

@@ -9,9 +9,8 @@ export const Contact = () => {
                 >
                     <h1 className="mb-3">Contact Us</h1>
                     <p>
-                        Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore
-                        lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero
-                        dolor duo.
+                    Get in Touch with Us. Whether you have questions, feedback, or just want to say hello, we're here to listen.
+                    Reach out to our team and let's start a conversation.
                     </p>
                 </div>
                 <div className="row g-4">
@@ -39,7 +38,7 @@ export const Contact = () => {
                                         <div className="icon me-3" style={{ width: 45, height: 45 }}>
                                             <i className="fa fa-envelope-open text-primary" />
                                         </div>
-                                        <span>info@example.com</span>
+                                        <span>martinkraychev987@gmail.com</span>
                                     </div>
                                 </div>
                             </div>
