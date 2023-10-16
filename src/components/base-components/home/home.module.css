@@ -33,3 +33,7 @@
     transform: skew(20deg);
     z-index: 1;
 }
+
+.colored-btn {
+    color: white
+}

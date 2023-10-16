@@ -15,6 +15,7 @@ import { PropertyAdd } from "./components/property-components/property-add/prope
 import { PropertyUserList } from "./components/property-components/property-user-list/property-user-list";
 import { PropertyDetails } from "./components/property-components/property-details/property-details";
 import { PropertyEdit } from "./components/property-components/property-edit/property-edit";
+import { PropertyDelete } from "./components/property-components/property-delete/property-delete";
 
 function App() {
 	return (
@@ -31,6 +32,7 @@ function App() {
 					<Route path="/my-properties" element={<PropertyUserList />}></Route>
 					<Route path="/catalog/:propertyId" element={<PropertyDetails />}></Route>
 					<Route path="/catalog/:propertyId/edit" element={<PropertyEdit />}></Route>
+					<Route path="/catalog/:propertyId/delete" element={<PropertyDelete />}></Route>
 					<Route path="/team" element={<Team />}></Route>
 					{/* <Route path="/testimonial" element={<Testemonial />}></Route> */}
 					<Route path="/contact" element={<Contact />}></Route>

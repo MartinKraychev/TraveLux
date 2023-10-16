@@ -1,0 +1,20 @@
+.centered-div {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.container {
+    width: 60%;
+    margin: 0 auto;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .08);
+    padding-top: 5px;
+   
+}
+
+.img:hover {
+    transform: scale(1.1);
+}
+
+.img {
+    transition: .5s;
+}

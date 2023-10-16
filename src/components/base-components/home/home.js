@@ -45,7 +45,7 @@ export const Home = () => {
                         Our platform is your one-stop destination for both property agents to showcase their premium accommodations and travelers to discover, 
                         book, and experience their dream getaways.
                         </p>
-                        <Link to="/catalog" className="btn btn-primary py-3 px-5 me-3 animated fadeIn">
+                        <Link to="/catalog" className={`btn btn-primary py-3 px-5 me-3 animated fadeIn ${styles['colored-btn']}`}>
                             Get Started
                         </Link>
                     </div>
