@@ -77,5 +77,7 @@ TODO:
         hide/show nav items for different user types
     Contact:
         google maps and email form
+    Details :
+        Edit and delete btns
 
 
