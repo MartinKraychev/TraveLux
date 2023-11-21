@@ -16,31 +16,38 @@ import { PropertyUserList } from "./components/property-components/property-user
 import { PropertyDetails } from "./components/property-components/property-details/property-details";
 import { PropertyEdit } from "./components/property-components/property-edit/property-edit";
 import { PropertyDelete } from "./components/property-components/property-delete/property-delete";
+import { AuthProvider } from './contexts/AuthContext';
+import { PrivateRoute } from "./components/private-route/private-route";
 
 function App() {
 	return (
-		<div>
-			<div className="container-xxl bg-white p-0">
-				{/* <Spinner /> */}
-				<NavBar />
-				<Routes>
-					<Route path="/" element={<Home />}></Route>
-					<Route path="/register" element={<Register />}></Route>
-					<Route path="/login" element={<Login />}></Route>
-					<Route path="/logout" element={<Logout />}></Route>
-					<Route path="/catalog" element={<PropertyCatalogList />}></Route>
-					<Route path="/my-properties" element={<PropertyUserList />}></Route>
-					<Route path="/catalog/:propertyId" element={<PropertyDetails />}></Route>
-					<Route path="/catalog/:propertyId/edit" element={<PropertyEdit />}></Route>
-					<Route path="/catalog/:propertyId/delete" element={<PropertyDelete />}></Route>
-					<Route path="/team" element={<Team />}></Route>
-					{/* <Route path="/testimonial" element={<Testemonial />}></Route> */}
-					<Route path="/contact" element={<Contact />}></Route>
-					<Route path="/add-property" element={<PropertyAdd />}></Route>
-				</Routes>
-				<Footer />
+		<AuthProvider>
+			<div>
+				<div className="container-xxl bg-white p-0">
+					{/* <Spinner /> */}
+					<NavBar />
+					<Routes>
+						<Route path="/" element={<Home />}></Route>
+						<Route path="/register" element={<Register />}></Route>
+						<Route path="/login" element={<Login />}></Route>
+						<Route path="/catalog" element={<PropertyCatalogList />}></Route>
+						<Route path="/catalog/:propertyId" element={<PropertyDetails />}></Route>
+						<Route path="/team" element={<Team />}></Route>
+						{/* <Route path="/testimonial" element={<Testemonial />}></Route> */}
+						<Route path="/contact" element={<Contact />}></Route>
+					
+						<Route element={<PrivateRoute />} >
+							<Route path="/logout" element={<Logout />}></Route>
+							<Route path="/my-properties" element={<PropertyUserList />}></Route>
+							<Route path="/catalog/:propertyId/edit" element={<PropertyEdit />}></Route>
+							<Route path="/catalog/:propertyId/delete" element={<PropertyDelete />}></Route>
+							<Route path="/add-property" element={<PropertyAdd />}></Route>
+						</Route>
+					</Routes>
+					<Footer />
+				</div>
 			</div>
-		</div>
+		</AuthProvider>
 	);
 }
 

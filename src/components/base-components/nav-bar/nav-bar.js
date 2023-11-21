@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom"
+import { AuthContext } from "../../../contexts/AuthContext"
+import { useContext } from 'react'
+
 import styles from "./nav-bar.module.css"
 
 export const NavBar = () => {
+    const { auth } = useContext(AuthContext)
+
     return (
         <div className={`container-fluid bg-transparent ${styles['nav-bar']}`}>
             <nav className={`navbar-expand-lg bg-white navbar-light py-0 px-4 ${styles['navbar']}`}>
@@ -26,18 +31,18 @@ export const NavBar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className={`ms-auto ${styles['navbar-nav']}`}>
-                        <Link to="/login" className={`nav-item ${styles['nav-link']}`}>
-                            Login
-                        </Link>
-                        <Link to="/register" className={`nav-item ${styles['nav-link']}`}>
-                            Register
-                        </Link>
-                        <Link to="/logout" className={`nav-item ${styles['nav-link']}`}>
-                            Loout
-                        </Link>
-                        <Link to="/my-properties" className={`nav-item ${styles['nav-link']}`}>
-                            My properties
-                        </Link>
+                        {auth && <Link to="/logout" className={`nav-item ${styles['nav-link']}`}>
+                            Logout
+                        </Link>}
+                        {auth && <Link to="/my-properties" className={`nav-item ${styles['nav-link']}`}>
+                                    My properties
+                                 </Link>}
+                        {!auth && <Link to="/login" className={`nav-item ${styles['nav-link']}`}>
+                                    Login
+                                 </Link>}
+                        {!auth && <Link to="/register" className={`nav-item ${styles['nav-link']}`}>
+                                    Register
+                                 </Link>}
                         <Link to="/catalog" className={`nav-item ${styles['nav-link']}`}>
                             Catalog
                         </Link>
@@ -45,15 +50,15 @@ export const NavBar = () => {
                             Meet the team
                         </Link>
                         {/* <Link to="/testimonial" className="nav-item nav-link">
-                            Testimonial
-                        </Link> */}
+                                    Testimonial
+                                        </Link> */}
                         <Link to="/contact" className={`nav-item ${styles['nav-link']}`}>
                             Contact
                         </Link>
                     </div>
-                    <Link to="/add-property" className={`btn btn-primary px-3 d-none d-lg-flex ${styles['add-btn']}`}>
-                        Add Property
-                    </Link>
+                    {auth && <Link to="/add-property" className={`btn btn-primary px-3 d-none d-lg-flex ${styles['add-btn']}`}>
+                                Add Property
+                             </Link>}
                 </div>
             </nav>
         </div>
