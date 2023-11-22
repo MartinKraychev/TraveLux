@@ -52,7 +52,7 @@ export async function post(url, data) {
 }
 
 export async function put(url, data) {
-    return request(url, createOptions('patch', data))
+    return request(url, createOptions('put', data))
 }
 
 export async function del(url) {

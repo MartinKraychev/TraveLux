@@ -20,8 +20,8 @@ export async function getPropertyById(id) {
     return api.get(`/properties/${id}`)
 }
 
-export async function editProperty(id) {
-    return api.patch(`/properties/${id}/edit`)
+export async function editProperty(id, data) {
+    return api.put(`/properties/${id}/edit`, data)
 }
 
 export async function deleteProperty(id) {
