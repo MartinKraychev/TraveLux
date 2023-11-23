@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate} from 'react-router-dom';
-import { getPropertyById, editProperty } from '../../../api/data';
+import { getPropertyById } from '../../../api/data';
+import { useContext } from 'react'
+import { PropertyContext } from "../../../contexts/PropertyContext";
 
 import styles from "./property-edit.module.css"
 
 export const PropertyEdit = () => {
+    const { editHandler } = useContext(PropertyContext)
     const { propertyId } = useParams();
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
@@ -50,13 +53,8 @@ export const PropertyEdit = () => {
             setErrorMessage('All fields are required!');
             return;
         }
-        editProperty(propertyId, {title, type, image_url:img, price_per_night:price, location, address, summary})
-            .then(() => {
-                navigate(`/catalog/${propertyId}`)
-            })
-            .catch((error) => {
-                setErrorMessage(error.message || 'An unexpected error occurred.');
-            });
+        editHandler(propertyId, {title, type, image_url:img, price_per_night:price, location, address, summary})
+
     };
     return (
         <div className={styles['add-property']}>

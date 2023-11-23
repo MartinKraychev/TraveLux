@@ -12,8 +12,8 @@ export async function createProperty(data) {
     return api.post('/properties', data)
 }
 
-export async function myProperties() {
-    return api.post('/properties/my-properties')
+export async function getMyProperties() {
+    return api.get('/properties/my-properties')
 }
 
 export async function getPropertyById(id) {

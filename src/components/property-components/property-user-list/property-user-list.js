@@ -1,7 +1,11 @@
 import { PropertyListItem } from "../property-list-item/property-list-item"
+import { useContext } from 'react'
+import { PropertyContext } from "../../../contexts/PropertyContext";
 import styles from "./propety-user-list.module.css"
 
 export const PropertyUserList = () => {
+    const { myProperties } = useContext(PropertyContext)
+
     return (
         <div className="container-xxl py-5">
             <div className="container">
@@ -23,12 +27,7 @@ export const PropertyUserList = () => {
                 <div className="tab-content">
                     <div id="tab-1" className="tab-pane fade show p-0 active">
                         <div className="row g-4">
-                            <PropertyListItem />
-                            <PropertyListItem />
-                            <PropertyListItem />
-                            <PropertyListItem />
-                            <PropertyListItem />
-                            <PropertyListItem />
+                            {myProperties.map(property => <PropertyListItem key={property.id} property={property} />)}
                         </div>
                     </div>
                 </div>

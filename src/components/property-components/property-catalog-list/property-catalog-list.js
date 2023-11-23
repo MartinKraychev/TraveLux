@@ -1,9 +1,13 @@
 import { PropertyListItem } from "../property-list-item/property-list-item"
 import { Search } from "../../base-components/search/search";
+import { useContext } from 'react'
+import { PropertyContext } from "../../../contexts/PropertyContext";
 
 import styles from "./property-catalog-list.module.css"
 
 export const PropertyCatalogList = () => {
+    const { properties } = useContext(PropertyContext)
+
     return (
         <>
             <div className="container-xxl py-5">
@@ -30,12 +34,7 @@ export const PropertyCatalogList = () => {
                     <div className="tab-content">
                         <div id="tab-1" className="tab-pane fade show p-0 active">
                             <div className="row g-4">
-                                <PropertyListItem />
-                                <PropertyListItem />
-                                <PropertyListItem />
-                                <PropertyListItem />
-                                <PropertyListItem />
-                                <PropertyListItem />
+                                {properties.map(property => <PropertyListItem key={property.id} property={property}/>)}
                             </div>
                         </div>
                     </div>

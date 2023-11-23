@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import { createProperty } from '../../../api/data';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { PropertyContext } from '../../../contexts/PropertyContext'; 
 
 import styles from "./property-add.module.css"
 
 export const PropertyAdd = () => {
+    const { createHandler } = useContext(PropertyContext);
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         title: '',
@@ -34,13 +35,7 @@ export const PropertyAdd = () => {
             setErrorMessage('All fields are required!');
             return;
         }
-        createProperty({title, type, image_url:img, price_per_night:price, location, address, summary})
-            .then(() => {
-                navigate('/catalog')
-            })
-            .catch((error) => {
-                setErrorMessage(error.message || 'An unexpected error occurred.');
-            });
+        createHandler({title, type, image_url:img, price_per_night:price, location, address, summary})
     };
 
     return (
