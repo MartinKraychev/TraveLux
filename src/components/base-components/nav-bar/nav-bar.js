@@ -31,16 +31,16 @@ export const NavBar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className={`ms-auto ${styles['navbar-nav']}`}>
-                        {auth && <Link to="/logout" className={`nav-item ${styles['nav-link']}`}>
+                        {auth.access_token && <Link to="/logout" className={`nav-item ${styles['nav-link']}`}>
                             Logout
                         </Link>}
-                        {auth && <Link to="/my-properties" className={`nav-item ${styles['nav-link']}`}>
+                        {auth.access_token && <Link to="/my-properties" className={`nav-item ${styles['nav-link']}`}>
                                     My properties
                                  </Link>}
-                        {!auth && <Link to="/login" className={`nav-item ${styles['nav-link']}`}>
+                        {!auth.access_token && <Link to="/login" className={`nav-item ${styles['nav-link']}`}>
                                     Login
                                  </Link>}
-                        {!auth && <Link to="/register" className={`nav-item ${styles['nav-link']}`}>
+                        {!auth.access_token && <Link to="/register" className={`nav-item ${styles['nav-link']}`}>
                                     Register
                                  </Link>}
                         <Link to="/catalog" className={`nav-item ${styles['nav-link']}`}>
@@ -56,7 +56,7 @@ export const NavBar = () => {
                             Contact
                         </Link>
                     </div>
-                    {auth && <Link to="/add-property" className={`btn btn-primary px-3 d-none d-lg-flex ${styles['add-btn']}`}>
+                    {auth.access_token && <Link to="/add-property" className={`btn btn-primary px-3 d-none d-lg-flex ${styles['add-btn']}`}>
                                 Add Property
                              </Link>}
                 </div>

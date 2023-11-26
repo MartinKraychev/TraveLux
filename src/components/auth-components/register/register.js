@@ -47,7 +47,7 @@ export const Register = () => {
             if (data && data.message) {
                 setErrorMessage(data.message);
             } else {
-                userLoginHandler(data.access_token);
+                userLoginHandler({access_token: data.access_token, user_id: data.id});
                 navigate('/catalog');
             }
         } catch (error) {

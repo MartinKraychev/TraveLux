@@ -1,28 +1,41 @@
 import { useParams } from "react-router-dom"
-import { useState, useEffect, useContext, useRef } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from 'react-router-dom'
 
 import { PropertyContext } from "../../../contexts/PropertyContext";
 import { AuthContext } from "../../../contexts/AuthContext";
-import { getPropertyById } from "../../../api/data";
+import { getPropertyById, canRate, rateProperty } from "../../../api/data";
 
 import styles from "./property-details.module.css"
 
 export const PropertyDetails = () => {
     const { propertyId } = useParams()
-    const overlayRef = useRef(null);
     const [property, setProperty] = useState({})
+    const [rateAvailability, setRateAvailability] = useState(false)
+    const { deleteHandler } = useContext(PropertyContext)
+    const [showConfirmation, setShowConfirmation] = useState(false);
+    const { isAuthenticated, auth } = useContext(AuthContext)
+    const [selectedRating, setSelectedRating] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
+    let isOwner = false
+
+    if (isAuthenticated) {
+        isOwner = auth.user_id === property.owner_id
+    }
+   
     useEffect(() => {
         getPropertyById(propertyId)
             .then(property => setProperty(property))
     }, [propertyId])
 
-    const { myProperties, deleteHandler } = useContext(PropertyContext)
-    const { IsAuthenticated } = useContext(AuthContext)
-    const [selectedRating, setSelectedRating] = useState('');
-    const isOwner = myProperties.some(prop => prop.id === property.id);
-    const [showConfirmation, setShowConfirmation] = useState(false);
+    useEffect(() => {
+        if (isAuthenticated) {
+            canRate({property_id:propertyId})
+                .then(canRateBool => setRateAvailability(canRateBool))
+        }
+        
+    }, [propertyId, isAuthenticated])
 
     const handleRatingChange = (event) => {
         setSelectedRating(event.target.value);
@@ -44,7 +57,19 @@ export const PropertyDetails = () => {
 
     const onSubmit = (event) => {
         event.preventDefault();
+        
+        if (!selectedRating) {
+            setErrorMessage('Pick a rating before submitting');
+            return;
+        }
 
+        rateProperty(propertyId, {vote:selectedRating})
+            .then(() => {
+                setRateAvailability(false);
+                getPropertyById(propertyId)
+                    .then(property => setProperty(property));
+            });
+        
     }
 
     return (
@@ -85,8 +110,9 @@ export const PropertyDetails = () => {
                         <div className={styles['rating-display']}>
                             {property.average_rating > 0 ? `Rating: ${property.average_rating}` : "Not rated yet"}
                         </div>
-                        {IsAuthenticated &&
+                        {isAuthenticated && rateAvailability &&
                             <form onSubmit={onSubmit}>
+                                {errorMessage && <p className={styles['error-message']}>{errorMessage}</p>}
                                 <select
                                     id="rate"
                                     name="rate"

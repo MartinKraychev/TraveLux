@@ -40,7 +40,7 @@ export const Login = () => {
             if (data && data.message) {
                 setErrorMessage(data.message);
             } else {
-                userLoginHandler(data.access_token);
+                userLoginHandler(data);
                 navigate('/catalog');
             }
         } catch (error) {

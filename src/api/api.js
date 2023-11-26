@@ -35,9 +35,9 @@ function createOptions(method = 'get', data) {
         options.body = JSON.stringify(data)
     }
 
-    const accessToken = localStorage.getItem('accessToken') || ''
-    if (accessToken !== '' || accessToken !== 'undefined') {
-        options.headers['Authorization'] = `Bearer ${accessToken}`
+    const userData = JSON.parse(localStorage.getItem('userData')) || {}
+    if (Object.keys(userData).length > 0) {
+        options.headers['Authorization'] = `Bearer ${userData.access_token}`
     }
 
     return options

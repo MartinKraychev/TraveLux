@@ -6,13 +6,13 @@ export const AuthContext = createContext()
 export const AuthProvider = ({
     children
 }) => {
-    const [auth, setAuth] = UseLocalStorage('accessToken', '')
+    const [auth, setAuth] = UseLocalStorage('userData', {})
     const userLoginHandler = (data) => {
         setAuth(data)
     }
 
     const userLogoutHandler = () => {
-        setAuth('')
+        setAuth({})
     }
 
     return (
@@ -20,7 +20,7 @@ export const AuthProvider = ({
         auth, 
         userLoginHandler, 
         userLogoutHandler,
-        isAuthenticated: auth !== ''}}>
+        isAuthenticated: !!auth.access_token}}>
         {children}
     </AuthContext.Provider>)
 }

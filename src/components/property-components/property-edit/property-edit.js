@@ -3,6 +3,7 @@ import { useParams, useNavigate} from 'react-router-dom';
 import { getPropertyById } from '../../../api/data';
 import { useContext } from 'react'
 import { PropertyContext } from "../../../contexts/PropertyContext";
+import { AuthContext } from '../../../contexts/AuthContext';
 
 import styles from "./property-edit.module.css"
 
@@ -10,6 +11,8 @@ export const PropertyEdit = () => {
     const { editHandler } = useContext(PropertyContext)
     const { propertyId } = useParams();
     const navigate = useNavigate();
+    const { auth, isAuthenticated } = useState(AuthContext)
+
     const [formData, setFormData] = useState({
         title: '',
         type: '',
@@ -25,6 +28,10 @@ export const PropertyEdit = () => {
     useEffect(() => {
         getPropertyById(propertyId)
             .then((property) => {
+                if (!isAuthenticated || auth.user_id !== property.owner_id) {
+                    navigate('/unauthorized');
+                    return;
+                }
                 setFormData({
                     title: property.title,
                     type: property.type,

@@ -1,10 +1,16 @@
+import { useState, useEffect} from "react";
+
+import { getMyProperties } from "../../../api/data"
 import { PropertyListItem } from "../property-list-item/property-list-item"
-import { useContext } from 'react'
-import { PropertyContext } from "../../../contexts/PropertyContext";
 import styles from "./propety-user-list.module.css"
 
 export const PropertyUserList = () => {
-    const { myProperties } = useContext(PropertyContext)
+    const [properties, setProperties] = useState([])
+
+    useEffect(() => {
+        getMyProperties()
+            .then(props => setProperties(props))
+    }, [])
 
     return (
         <div className="container-xxl py-5">
@@ -27,7 +33,7 @@ export const PropertyUserList = () => {
                 <div className="tab-content">
                     <div id="tab-1" className="tab-pane fade show p-0 active">
                         <div className="row g-4">
-                            {myProperties.map(property => <PropertyListItem key={property.id} property={property} />)}
+                            {properties.map(property => <PropertyListItem key={property.id} property={property} />)}
                         </div>
                     </div>
                 </div>

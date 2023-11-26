@@ -14,11 +14,9 @@ import { PropertyAdd } from "./components/property-components/property-add/prope
 import { PropertyUserList } from "./components/property-components/property-user-list/property-user-list";
 import { PropertyDetails } from "./components/property-components/property-details/property-details";
 import { PropertyEdit } from "./components/property-components/property-edit/property-edit";
-import { PropertyDelete } from "./components/property-components/property-delete/property-delete";
 import { AuthProvider } from './contexts/AuthContext';
 import { PrivateRoute } from "./components/special-route/private-route";
 import { PropertyProvider } from "./contexts/PropertyContext";
-import { OwnerRoute } from "./components/special-route/owner-route";
 
 
 function App() {
@@ -42,9 +40,7 @@ function App() {
 								<Route path="/logout" element={<Logout />}></Route>
 								<Route path="/my-properties" element={<PropertyUserList />}></Route>
 								<Route path="/add-property" element={<PropertyAdd />}></Route>
-								<Route element={<OwnerRoute />}>
-									<Route path="/catalog/:propertyId/edit" element={<PropertyEdit />} />
-								</Route>
+								<Route path="/catalog/:propertyId/edit" element={<PropertyEdit />} />
 							</Route>
 						</Routes>
 					</PropertyProvider>
@@ -64,4 +60,10 @@ export default App;
 // Refactor
 // Optimize imports
 // Make click outside modal, hide it
-// Email validation on backend
+// Email validation on backend?
+// Search
+// deployment
+// docs
+// spinner?
+// navbar reduce size
+// footer photos
