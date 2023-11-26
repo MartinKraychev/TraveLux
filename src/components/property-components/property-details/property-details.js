@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect, useContext } from "react";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { PropertyContext } from "../../../contexts/PropertyContext";
 import { AuthContext } from "../../../contexts/AuthContext";
@@ -17,6 +17,7 @@ export const PropertyDetails = () => {
     const { isAuthenticated, auth } = useContext(AuthContext)
     const [selectedRating, setSelectedRating] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const navigate = useNavigate();
 
     let isOwner = false
 
@@ -26,7 +27,13 @@ export const PropertyDetails = () => {
    
     useEffect(() => {
         getPropertyById(propertyId)
-            .then(property => setProperty(property))
+            .then((property) => {
+                if (!property.id) {
+                    navigate('/not-found');
+                    return;
+                }
+                setProperty(property)
+            })
     }, [propertyId])
 
     useEffect(() => {

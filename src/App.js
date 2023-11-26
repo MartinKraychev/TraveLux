@@ -17,6 +17,8 @@ import { PropertyEdit } from "./components/property-components/property-edit/pro
 import { AuthProvider } from './contexts/AuthContext';
 import { PrivateRoute } from "./components/special-route/private-route";
 import { PropertyProvider } from "./contexts/PropertyContext";
+import { Unauthorized } from "./components/base-components/unauthorized/unauthorized";
+import { NotFound } from "./components/base-components/not-found/not-found";
 
 
 function App() {
@@ -42,6 +44,9 @@ function App() {
 								<Route path="/add-property" element={<PropertyAdd />}></Route>
 								<Route path="/catalog/:propertyId/edit" element={<PropertyEdit />} />
 							</Route>
+
+							<Route path="/unauthorized" element={<Unauthorized />}></Route>
+							<Route path="*" element={<NotFound />}></Route>
 						</Routes>
 					</PropertyProvider>
 					<Footer />
@@ -52,7 +57,6 @@ function App() {
 }
 
 export default App;
-// Unauthorized, 404 pages?
 // Check functionality and edge cases
 // Make pretty
 // Google maps?
@@ -60,11 +64,10 @@ export default App;
 // Refactor
 // Optimize imports
 // Make click outside modal, hide it
-// Email validation on backend? phone validation?
 // Search
 // deployment
 // docs
 // spinner?
 // navbar reduce size
 // footer photos
-// rating with stars
+// rating with stars, add rating to catalog

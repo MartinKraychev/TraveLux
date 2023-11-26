@@ -11,8 +11,7 @@ export const PropertyEdit = () => {
     const { editHandler } = useContext(PropertyContext)
     const { propertyId } = useParams();
     const navigate = useNavigate();
-    const { auth, isAuthenticated } = useState(AuthContext)
-
+    const { isAuthenticated, auth } = useContext(AuthContext)
     const [formData, setFormData] = useState({
         title: '',
         type: '',
