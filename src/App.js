@@ -60,10 +60,11 @@ export default App;
 // Refactor
 // Optimize imports
 // Make click outside modal, hide it
-// Email validation on backend?
+// Email validation on backend? phone validation?
 // Search
 // deployment
 // docs
 // spinner?
 // navbar reduce size
 // footer photos
+// rating with stars

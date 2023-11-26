@@ -77,12 +77,14 @@ export const Register = () => {
                     </label>
                     <input
                         className={styles['input']}
-                        type="phoneNumber"
+                        type="tel"
                         id="phoneNumber"
                         name="phoneNumber"
                         value={formData.phoneNumber}
                         onChange={handleInputChange}
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                     />
+                    <small>Format: 123-456-7890</small>
                     <label htmlFor="password" className={styles['label']}>
                         Password:
                     </label>
