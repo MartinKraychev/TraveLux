@@ -69,3 +69,11 @@
     border: 1px dashed var(--primary) !important;
 }
 
+.custom-collapse {
+    @media (max-width: 991.98px) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  }
+

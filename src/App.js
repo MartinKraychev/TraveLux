@@ -58,15 +58,13 @@ function App() {
 
 export default App;
 // Check functionality and edge cases
-// Make pretty
+// Make pretty, footer?
 // Google maps?
 // Meet the team view?
 // Refactor
 // Optimize imports
-// Search
 // deployment
 // docs
 // spinner?
-// navbar reduce size
-// footer photos
 // rating with stars, add rating to catalog
+// contact page, send email

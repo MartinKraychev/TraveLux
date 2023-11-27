@@ -28,6 +28,10 @@ export async function deleteProperty(id) {
     return api.del(`/properties/${id}/delete`)
 }
 
+export async function getPropertyPhotos() {
+    return api.get('/properties/photos')
+}
+
 export async function canRate(data) {
     return api.post(`/rate/check-rating`, data)
 }
@@ -35,6 +39,7 @@ export async function canRate(data) {
 export async function rateProperty(property_id, data) {
     return api.post(`/rate/${property_id}`, data)
 }
+
 
 
 
