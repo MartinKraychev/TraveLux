@@ -1,12 +1,41 @@
 import { PropertyListItem } from "../property-list-item/property-list-item"
 import { Search } from "../../base-components/search/search";
-import { useContext } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { PropertyContext } from "../../../contexts/PropertyContext";
 
 import styles from "./property-catalog-list.module.css"
 
 export const PropertyCatalogList = () => {
     const { properties } = useContext(PropertyContext)
+    const [filteredProperties, setFilteredProperties] = useState(properties);
+    
+    useEffect(() => {
+        setFilteredProperties(properties);
+    }, [properties]);
+
+    const handleSearch = ({ keyword, propertyType, location }) => {
+        let filteredResults = properties;
+    
+        // Stage 1: Filter by Location
+        if (location) {
+            filteredResults = filteredResults.filter(property => property.location === location);
+        }
+    
+        // Stage 2: Filter by Property Type
+        if (propertyType) {
+            filteredResults = filteredResults.filter(property => property.type === propertyType);
+        }
+    
+        // Stage 3: Filter by Keyword
+        if (keyword) {
+            const lowercasedKeyword = keyword.toLowerCase();
+            filteredResults = filteredResults.filter(property =>
+                property.title.toLowerCase().includes(lowercasedKeyword)
+            );
+        }
+    
+        setFilteredProperties(filteredResults);
+    };
 
     return (
         <>
@@ -29,12 +58,12 @@ export const PropertyCatalogList = () => {
                             data-wow-delay="0.1s"
                         >
                         </div>
-                        <Search />
+                        <Search onSearch={handleSearch} />
                     </div>
                     <div className="tab-content">
                         <div id="tab-1" className="tab-pane fade show p-0 active">
                             <div className="row g-4">
-                                {properties.map(property => <PropertyListItem key={property.id} property={property}/>)}
+                                {filteredProperties.map(property => <PropertyListItem key={property.id} property={property}/>)}
                             </div>
                         </div>
                     </div>

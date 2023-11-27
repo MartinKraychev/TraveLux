@@ -63,7 +63,6 @@ export default App;
 // Meet the team view?
 // Refactor
 // Optimize imports
-// Make click outside modal, hide it
 // Search
 // deployment
 // docs

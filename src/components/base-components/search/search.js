@@ -1,6 +1,35 @@
+import { useState } from "react";
+
 import styles from "./search.module.css"
 
-export const Search = () => {
+export const Search = ({ onSearch }) => {
+    const initialSearchCriteria = {
+        keyword: '',
+        propertyType: '',
+        location: '',
+    };
+
+    const [searchCriteria, setSearchCriteria] = useState(initialSearchCriteria);
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setSearchCriteria((prevCriteria) => ({
+            ...prevCriteria,
+            [name]: value,
+        }));
+    };
+
+    const resetSearch = () => {
+        // Reset the state to the initial search criteria
+        setSearchCriteria(initialSearchCriteria);
+        // Trigger a search with the initial criteria to display all properties
+        onSearch(initialSearchCriteria);
+    };
+
+    const handleSearch = () => {
+        onSearch(searchCriteria);
+    };
+
     return (
         <div
             className={`container-fluid bg-primary mb-5 wow fadeIn ${styles['container']}`}
@@ -8,35 +37,51 @@ export const Search = () => {
         >
             <div className="container">
                 <div className="row g-2">
-                    <div className="col-md-10">
+                    <div className={`col-md-10 ${styles['search-box']}`}>
                         <div className="row g-2">
                             <div className="col-md-4">
                                 <input
                                     type="text"
-                                    className="form-control border-0 "
+                                    className="form-control border-0"
                                     placeholder="Search Keyword"
+                                    name="keyword"
+                                    value={searchCriteria.keyword}
+                                    onChange={handleInputChange}
                                 />
                             </div>
                             <div className="col-md-4">
-                                <select className="form-select border-0 ">
-                                    <option selected="">Property Type</option>
-                                    <option value={1}>Property Type 1</option>
-                                    <option value={2}>Property Type 2</option>
-                                    <option value={3}>Property Type 3</option>
+                                <select className="form-select border-0"
+                                    name="propertyType"
+                                    value={searchCriteria.propertyType}
+                                    onChange={handleInputChange}
+                                >
+                                    <option value="">Select property type</option>
+                                    <option value="Flat">Flat</option>
+                                    <option value="House">House</option>
+                                    <option value="Villa">Villa</option>
                                 </select>
                             </div>
                             <div className="col-md-4">
-                                <select className="form-select border-0 ">
-                                    <option selected="">Location</option>
-                                    <option value={1}>Location 1</option>
-                                    <option value={2}>Location 2</option>
-                                    <option value={3}>Location 3</option>
+                                <select className="form-select border-0"
+                                    name="location"
+                                    value={searchCriteria.location}
+                                    onChange={handleInputChange}
+                                >
+                                    <option value="">Select location</option>
+                                    <option value="Usa">Usa</option>
+                                    <option value="Europe">Europe</option>
+                                    <option value="Australia">Australia</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div className="col-md-2">
-                        <button className="btn btn-dark border-0 w-100 ">Search</button>
+                        <button className="btn btn-dark border-0 w-100 " onClick={handleSearch}>Search</button>
+                    </div>
+                    <div className="col-md-2">
+                        <button className="btn btn-danger border-0 w-100" onClick={resetSearch}>
+                            Reset
+                        </button>
                     </div>
                 </div>
             </div>
