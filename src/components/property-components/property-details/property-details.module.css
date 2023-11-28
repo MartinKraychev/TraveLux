@@ -1,86 +1,171 @@
 .centered-div {
-    text-align: center;
-    padding-top: 30px;
+  text-align: center;
+  padding-top: 30px;
 }
 
 .container {
-    width: 60%;
-    margin: 0 auto;
-    box-shadow: 0 0 30px rgba(0, 0, 0, .08);
-    padding-top: 5px;
-   
+  width: 60%;
+  margin: 0 auto;
+  box-shadow: 0 0 30px rgba(0, 0, 0, .08);
+  padding-top: 5px;
+
 }
 
 .img:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .img {
-    transition: .5s;
+  transition: .5s;
 }
 
 .info {
-    width: 60%;
-    float: left;
-    text-align: left;
-  }
+  width: 60%;
+  float: left;
+  text-align: left;
+}
 
-  .right-container {
-    width: 40%;
-    float: right;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  .rating-container {
-    margin-bottom: 20px;
-  }
-  
-  .buttons-container button {
-    margin-right: 10px;
-  }  
+.right-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  padding: 20px;
+  box-sizing: border-box;
+}
 
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
-  
-  .confirmation-dialog {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
-  }
-  
-  .confirmation-dialog p {
-    margin-bottom: 20px;
-  }
-  
-  .confirmation-buttons button {
-    background: #e74c3c;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    margin: 0 5px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  .confirmation-buttons button:hover {
-    background: #c0392b;
-  }
+.rating-container {
+  margin-bottom: 20px;
+}
 
-  .error-message {
-    color: red;
-    margin-top: 5px;
-    font-size: 14px;
+.buttons-container button {
+  margin-right: 10px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.confirmation-dialog {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.confirmation-dialog p {
+  margin-bottom: 20px;
+}
+
+.confirmation-buttons button {
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.confirmation-buttons .delete-button {
+  background-color: #f44336;
+}
+
+.confirmation-buttons .cancel-button {
+  background-color: green;
+}
+
+
+.error-message {
+  color: red;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.rating-display {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 16px;
+  color: #ffd700;
+  justify-content: center;
+}
+
+.left-container {
+  text-align: left;
+}
+
+.p-black {
+  color: black;
+  font-size: 20px;
+}
+
+.inner-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-button {
+  background-color: #4caf50; 
+  color: #fff; 
+  border: none;
+  padding: 8px 16px;
+  margin-right: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-button {
+  background-color: #f44336; 
+  color: #fff; 
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-button:hover, .delete-button:hover {
+  opacity: 0.8;
+}
+
+.rating-select {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.rate-button {
+  background-color: #4caf50; 
+  color: #fff; 
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.rate-button:hover {
+  opacity: 0.8; 
+
 }

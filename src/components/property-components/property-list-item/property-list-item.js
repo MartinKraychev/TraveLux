@@ -1,7 +1,8 @@
+import { StarRating } from "../property-star/property-star"
 import styles from "./property-list-item.module.css"
 import { Link } from "react-router-dom"
 
-export const PropertyListItem = ({property}) => {
+export const PropertyListItem = ({ property }) => {
     return (
         <div
             className="col-lg-4 col-md-6 wow fadeInUp"
@@ -18,14 +19,20 @@ export const PropertyListItem = ({property}) => {
                             {property.type}
                         </div>
                     </div>
-                    <div className="p-4 pb-0">
-                        <h5 className="text-primary mb-3">${property.price_per_night}</h5>
-                        <p className="d-block h5 mb-2">
+                    <div className={styles['rating-display']}>
+                        {property.average_rating > 0 ? <StarRating rating={property.average_rating} />
+                            : "Not rated yet"}
+                    </div>
+                    <div className={`p-4 pb-0 ${styles['centered']}`}>
+                        <h3 className="text-primary mb-3">
                             {property.title}
-                        </p>
+                        </h3>
+                        <p className={styles['p-black']}>Price per night: ${property.price_per_night}</p>
+
                         <p>
-                            <i className="fa fa-map-marker-alt text-primary me-2" />
-                            {property.address}
+                            <i className={`fa fa-map-marker-alt me-2 ${styles['p-black']}`} />
+                            <p className={styles['p-black']}>{property.address}</p>
+                            <p className={styles['p-black']}>{property.location}</p>
                         </p>
                     </div>
                 </div>

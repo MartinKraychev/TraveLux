@@ -6,7 +6,6 @@ import { Footer } from "./components/base-components/footer/footer";
 import { NavBar } from "./components/base-components/nav-bar/nav-bar";
 import { PropertyCatalogList } from "./components/property-components/property-catalog-list/property-catalog-list";
 import { Spinner } from "./components/base-components/spinner/spinner";
-import { Team } from "./components/base-components/team/team";
 import { Login } from "./components/auth-components/login/login";
 import { Register } from "./components/auth-components/register/register";
 import { Logout } from "./components/auth-components/logout/logout";
@@ -35,7 +34,6 @@ function App() {
 							<Route path="/login" element={<Login />}></Route>
 							<Route path="/catalog" element={<PropertyCatalogList />}></Route>
 							<Route path="/catalog/:propertyId" element={<PropertyDetails />}></Route>
-							<Route path="/team" element={<Team />}></Route>
 							<Route path="/contact" element={<Contact />}></Route>
 
 							<Route element={<PrivateRoute />} >
@@ -59,12 +57,9 @@ function App() {
 export default App;
 // Check functionality and edge cases
 // Make pretty, footer?
-// Google maps?
-// Meet the team view?
 // Refactor
 // Optimize imports
 // deployment
 // docs
 // spinner?
-// rating with stars, add rating to catalog
 // contact page, send email

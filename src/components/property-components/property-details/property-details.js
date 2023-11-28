@@ -7,6 +7,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import { getPropertyById, canRate, rateProperty } from "../../../api/data";
 
 import styles from "./property-details.module.css"
+import { StarRating } from "../property-star/property-star";
 
 export const PropertyDetails = () => {
     const { propertyId } = useParams()
@@ -24,7 +25,7 @@ export const PropertyDetails = () => {
     if (isAuthenticated) {
         isOwner = auth.user_id === property.owner_id
     }
-   
+
     useEffect(() => {
         getPropertyById(propertyId)
             .then((property) => {
@@ -38,10 +39,10 @@ export const PropertyDetails = () => {
 
     useEffect(() => {
         if (isAuthenticated) {
-            canRate({property_id:propertyId})
+            canRate({ property_id: propertyId })
                 .then(canRateBool => setRateAvailability(canRateBool))
         }
-        
+
     }, [propertyId, isAuthenticated])
 
     const handleRatingChange = (event) => {
@@ -64,19 +65,19 @@ export const PropertyDetails = () => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        
+
         if (!selectedRating) {
             setErrorMessage('Pick a rating before submitting');
             return;
         }
 
-        rateProperty(propertyId, {vote:selectedRating})
+        rateProperty(propertyId, { vote: selectedRating })
             .then(() => {
                 setRateAvailability(false);
                 getPropertyById(propertyId)
                     .then(property => setProperty(property));
             });
-        
+
     }
 
     return (
@@ -95,59 +96,63 @@ export const PropertyDetails = () => {
                         alt="img"
                     />
                 </div>
-                <div className={`p-4 pb-0 ${styles['info']}`}>
-                    <h5 className="text-primary mb-3">${property.price_per_night}</h5>
-                    <p className="d-block h5 mb-2">
-                        {property.title}
-                    </p>
-                    <div>
-                        <i className="fa fa-map-marker-alt text-primary me-2" />
-                        <p>{property.address}</p>
-                        <p>{property.location}</p>
-                    </div>
-                    <p>
-                        If you want to book, don't hesitate and call <span className="d-block h6 mb-2">{property.owner_number}</span>
-                    </p>
-                    <p>
-                        {property.summary}
-                    </p>
-                </div>
-                <div className={styles['right-container']}>
-                    <div className={styles['rating-container']}>
-                        <div className={styles['rating-display']}>
-                            {property.average_rating > 0 ? `Rating: ${property.average_rating}` : "Not rated yet"}
-                        </div>
-                        {isAuthenticated && rateAvailability &&
-                            <form onSubmit={onSubmit}>
-                                {errorMessage && <p className={styles['error-message']}>{errorMessage}</p>}
-                                <select
-                                    id="rate"
-                                    name="rate"
-                                    className={styles['rating-select']}
-                                    onChange={handleRatingChange}
-                                    value={selectedRating}
-                                >
-                                    <option value="">Select a rating</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                                <button type="submit" className={styles['rate-button']}>
-                                    Rate this property
-                                </button>
-                            </form>}
+                <div className={styles['inner-container']}>
+                    <div className={`p-4 pb-0 ${styles['left-container']}`}>
+                        <h3 className="text-primary mb-3">
+                            {property.title}
+                        </h3>
+                        <p className={styles['p-black']}>Price per night: ${property.price_per_night}</p>
 
+                        <p>
+                            <i className={`fa fa-map-marker-alt me-2 ${styles['p-black']}`} />
+                            <p className={styles['p-black']}>{property.address}</p>
+                            <p className={styles['p-black']}>{property.location}</p>
+                        </p>
+                        <p className={styles['p-black']}>
+                            If you want to book, don't hesitate and call <span className="d-block h6 mb-2">{property.owner_number}</span>
+                        </p>
+                        <p className={styles['p-black']}>
+                            {property.summary}
+                        </p>
                     </div>
-                    {isOwner &&
-                        (<div className={styles['buttons-container']}>
-                            <Link to={`/catalog/${propertyId}/edit`} className={styles['edit-button']}>Edit</Link>
-                            <button className={styles['delete-button']} onClick={handleDelete}>
-                                Delete
-                            </button>
-                        </div>)
-                    }
+                    <div className={styles['right-container']}>
+                        <div className={styles['rating-container']}>
+                            <div className={styles['rating-display']}>
+                                {property.average_rating > 0 ? <StarRating rating={property.average_rating} />
+                                    : "Not rated yet"}
+                            </div>
+                            {isAuthenticated && rateAvailability &&
+                                <form onSubmit={onSubmit}>
+                                    {errorMessage && <p className={styles['error-message']}>{errorMessage}</p>}
+                                    <select
+                                        id="rate"
+                                        name="rate"
+                                        className={styles['rating-select']}
+                                        onChange={handleRatingChange}
+                                        value={selectedRating}
+                                    >
+                                        <option value="">Select a rating</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                    <button type="submit" className={styles['rate-button']}>
+                                        Rate this property
+                                    </button>
+                                </form>}
+
+                        </div>
+                        {isOwner &&
+                            (<div className={styles['buttons-container']}>
+                                <Link to={`/catalog/${propertyId}/edit`} className={styles['edit-button']}>Edit</Link>
+                                <button className={styles['delete-button']} onClick={handleDelete}>
+                                    Delete
+                                </button>
+                            </div>)
+                        }
+                    </div>
                 </div>
             </div>
             {/* Delete confirmation overlay */}
@@ -156,8 +161,8 @@ export const PropertyDetails = () => {
                     <div className={styles['confirmation-dialog']}>
                         <p>Are you sure you want to delete this property?</p>
                         <div className={styles['confirmation-buttons']}>
-                            <button onClick={confirmDelete}>Yes, delete</button>
-                            <button onClick={cancelDelete}>Cancel</button>
+                            <button className={styles['delete-button']} onClick={confirmDelete}>Yes, delete</button>
+                            <button className={styles['cancel-button']} onClick={cancelDelete}>Cancel</button>
                         </div>
                     </div>
                 </div>)}

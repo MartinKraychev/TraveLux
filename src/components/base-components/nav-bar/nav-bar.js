@@ -46,9 +46,6 @@ export const NavBar = () => {
                         <Link to="/catalog" className={`nav-item ${styles['nav-link']}`}>
                             Catalog
                         </Link>
-                        <Link to="/team" className={`nav-item ${styles['nav-link']}`}>
-                            Meet the team
-                        </Link>
                         <Link to="/contact" className={`nav-item ${styles['nav-link']}`}>
                             Contact
                         </Link>
