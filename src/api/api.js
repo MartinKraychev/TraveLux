@@ -8,7 +8,7 @@ async function request(url, options) {
 
         if (response.ok !== true) {
             if (response.status === 403) {
-               localStorage.setItem('accessToken', JSON.stringify(''))
+                localStorage.removeItem('userData')
             //    wrong token
             }
             const error = await response.json()

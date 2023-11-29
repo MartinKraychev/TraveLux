@@ -61,5 +61,5 @@ export default App;
 // Optimize imports
 // deployment
 // docs
-// spinner?
 // contact page, send email
+// test 403 remove token
