@@ -1,6 +1,7 @@
 import { useContext } from 'react'
-import { logout } from '../../../api/data';
 import { useNavigate } from 'react-router-dom';
+
+import { logout } from '../../../api/data';
 import { AuthContext } from '../../../contexts/AuthContext.js';
 
 export const Logout = () => {

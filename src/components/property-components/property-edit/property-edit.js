@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate} from 'react-router-dom';
+
 import { getPropertyById } from '../../../api/data';
-import { useContext } from 'react'
 import { PropertyContext } from "../../../contexts/PropertyContext";
 import { AuthContext } from '../../../contexts/AuthContext';
 

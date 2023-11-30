@@ -1,4 +1,73 @@
+import { useState } from 'react';
+
+import styles from "./contact.module.css"
+
 export const Contact = () => {
+    const initialFormData = {
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+    };
+
+    const [formData, setFormData] = useState(initialFormData);
+    const [formMessage, setMessage] = useState('');
+    const [messageClassName, setMessageClassName] = useState('');
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+
+
+    const onSubmit = async (e) => {
+        e.preventDefault();
+
+        const { name, email, subject, message } = formData;
+
+        if (!email || !name || !subject || !message) {
+            setMessageClassName('error-message');
+            setMessage('All fields are required!');
+            return;
+        }
+
+
+        const options = {
+            method: "post",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'api-key': "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"
+            },
+            body: JSON.stringify({
+                "sender": {
+                    "name": name,
+                    "email": email
+                },
+                "to": [{
+                    "email": "martinkraychev987@gmail.com",
+                    "name": "Martin Kraychev"
+                }],
+                "subject": subject,
+                "htmlContent": `<html><head></head><body><p>Hello,</p>${message}</p></body></html>`
+            })
+        }
+
+        const response = await fetch("https://api.brevo.com/v3/smtp/email", options)
+
+        if (response.ok !== true) {
+            const error = await response.json();
+            setMessage(error)
+            setMessageClassName('error-message');
+            return;
+        }
+
+        setMessageClassName("success-message")
+        setMessage("Email sent successfully")
+        setFormData(initialFormData)
+    }
+
     return (
         <div className="container-xxl py-5">
             <div className="container">
@@ -9,8 +78,8 @@ export const Contact = () => {
                 >
                     <h1 className="mb-3">Contact Us</h1>
                     <p>
-                    Get in Touch with Us. Whether you have questions, feedback, or just want to say hello, we're here to listen.
-                    Reach out to our team and let's start a conversation.
+                        Get in Touch with Us. Whether you have questions, feedback, or just want to say hello, we're here to listen.
+                        Reach out to our team and let's start a conversation.
                     </p>
                 </div>
                 <div className="row g-4">
@@ -70,7 +139,7 @@ export const Contact = () => {
                     </div>
                     <div className="col-md-6">
                         <div className="wow fadeInUp" data-wow-delay="0.5s">
-                            <form>
+                            <form onSubmit={onSubmit}>
                                 <div className="row g-3">
                                     <div className="col-md-6">
                                         <div className="form-floating">
@@ -78,7 +147,10 @@ export const Contact = () => {
                                                 type="text"
                                                 className="form-control"
                                                 id="name"
+                                                name="name"
                                                 placeholder="Your Name"
+                                                value={formData.name}
+                                                onChange={handleInputChange}
                                             />
                                             <label htmlFor="name">Your Name</label>
                                         </div>
@@ -89,7 +161,10 @@ export const Contact = () => {
                                                 type="email"
                                                 className="form-control"
                                                 id="email"
+                                                name="email"
                                                 placeholder="Your Email"
+                                                value={formData.email}
+                                                onChange={handleInputChange}
                                             />
                                             <label htmlFor="email">Your Email</label>
                                         </div>
@@ -100,7 +175,10 @@ export const Contact = () => {
                                                 type="text"
                                                 className="form-control"
                                                 id="subject"
+                                                name="subject"
                                                 placeholder="Subject"
+                                                value={formData.subject}
+                                                onChange={handleInputChange}
                                             />
                                             <label htmlFor="subject">Subject</label>
                                         </div>
@@ -112,11 +190,14 @@ export const Contact = () => {
                                                 placeholder="Leave a message here"
                                                 id="message"
                                                 style={{ height: 150 }}
-                                                defaultValue={""}
+                                                name="message"
+                                                value={formData.message}
+                                                onChange={handleInputChange}
                                             />
                                             <label htmlFor="message">Message</label>
                                         </div>
                                     </div>
+                                    {formMessage && <p className={styles[messageClassName]}>{formMessage}</p>}
                                     <div className="col-12">
                                         <button className="btn btn-primary w-100 py-3" type="submit">
                                             Send Message

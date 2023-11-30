@@ -5,7 +5,6 @@ import { Contact } from "./components/base-components/contact/contact";
 import { Footer } from "./components/base-components/footer/footer";
 import { NavBar } from "./components/base-components/nav-bar/nav-bar";
 import { PropertyCatalogList } from "./components/property-components/property-catalog-list/property-catalog-list";
-import { Spinner } from "./components/base-components/spinner/spinner";
 import { Login } from "./components/auth-components/login/login";
 import { Register } from "./components/auth-components/register/register";
 import { Logout } from "./components/auth-components/logout/logout";
@@ -56,10 +55,6 @@ function App() {
 
 export default App;
 // Check functionality and edge cases
-// Make pretty, footer?
-// Refactor
-// Optimize imports
 // deployment
 // docs
 // contact page, send email
-// test 403 remove token

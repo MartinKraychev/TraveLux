@@ -2,6 +2,7 @@ import { useState, useEffect} from "react";
 
 import { getMyProperties } from "../../../api/data"
 import { PropertyListItem } from "../property-list-item/property-list-item"
+
 import styles from "./propety-user-list.module.css"
 
 export const PropertyUserList = () => {

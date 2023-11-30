@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react'
-import { login } from '../../../api/data';
 import { useNavigate, Link } from 'react-router-dom';
+
+import { login } from '../../../api/data';
 import { AuthContext } from '../../../contexts/AuthContext.js';
 
 import styles from "./login.module.css"
@@ -81,14 +82,14 @@ export const Login = () => {
                         className={styles['btn-submit']}
                         value="Login"
                     />
-                    <p className={styles['field']}>
+                    <div className={styles['field']}>
                         <span>
                             If you are not yet registered, click{' '}
                             <Link to="/register" className={styles['link']}>
                                 here
                             </Link>
                         </span>
-                    </p>
+                    </div>
                 </div>
             </form>
         </section>

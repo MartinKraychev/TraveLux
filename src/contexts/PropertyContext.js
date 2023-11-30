@@ -1,6 +1,6 @@
-import { createContext } from "react";
 import { useNavigate } from 'react-router-dom'
-import { useState, useEffect} from "react";
+import { useState, useEffect, createContext } from "react";
+
 import { createProperty, editProperty, deleteProperty, getAllProperties  } from "../api/data";
 
 export const PropertyContext = createContext()

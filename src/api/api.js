@@ -7,10 +7,6 @@ async function request(url, options) {
 
 
         if (response.ok !== true) {
-            if (response.status === 403) {
-                localStorage.removeItem('userData')
-            //    wrong token
-            }
             const error = await response.json()
             const message = error.detail
             throw new Error(message)
@@ -61,13 +57,11 @@ export async function del(url) {
 
 export async function login(email, password) {
     const result = await post('/auth/login/', {email, password})
-
     return result
 }
 
 export async function register(email, password, phoneNumber) {
     const result = await post('/auth/register/', {email, password, phone_number:phoneNumber})
-
     return result
 }
 

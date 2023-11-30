@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react'
-import { register } from '../../../api/data';
 import { useNavigate, Link } from 'react-router-dom';
+
+import { register } from '../../../api/data';
 import { AuthContext } from '../../../contexts/AuthContext.js';
 
 import styles from "./register.module.css";
@@ -108,14 +109,14 @@ export const Register = () => {
                         onChange={handleInputChange}
                     />
                     <input className={styles['btn-submit']} type="submit" value="Register" />
-                    <p className={styles['field']}>
+                    <div className={styles['field']}>
                         <span>
                             If you already have a profile, click{' '}
                             <Link to="/login" className={styles['link']}>
                                 here
                             </Link>
                         </span>
-                    </p>
+                    </div>
                 </div>
             </form>
         </section>

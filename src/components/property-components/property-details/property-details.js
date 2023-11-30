@@ -5,9 +5,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import { PropertyContext } from "../../../contexts/PropertyContext";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { getPropertyById, canRate, rateProperty } from "../../../api/data";
+import { StarRating } from "../property-star/property-star";
 
 import styles from "./property-details.module.css"
-import { StarRating } from "../property-star/property-star";
 
 export const PropertyDetails = () => {
     const { propertyId } = useParams()
@@ -105,8 +105,7 @@ export const PropertyDetails = () => {
 
                         <p>
                             <i className={`fa fa-map-marker-alt me-2 ${styles['p-black']}`} />
-                            <p className={styles['p-black']}>{property.address}</p>
-                            <p className={styles['p-black']}>{property.location}</p>
+                            <p className={styles['p-black']}>{property.address}, {property.location}</p>
                         </p>
                         <p className={styles['p-black']}>
                             If you want to book, don't hesitate and call <span className="d-block h6 mb-2">{property.owner_number}</span>

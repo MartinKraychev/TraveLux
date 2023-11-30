@@ -4,6 +4,8 @@
 
 .img {
     transition: .5s;
+    height: 200px;
+    width: 100%;
 }
 
 .property-item:hover img {
@@ -26,4 +28,8 @@
 
 .centered {
     text-align: center;
+}
+
+.container {
+    height: 300px;
 }

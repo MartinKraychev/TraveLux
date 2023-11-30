@@ -1,12 +1,11 @@
 import { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import { PropertyContext } from '../../../contexts/PropertyContext'; 
 
 import styles from "./property-add.module.css"
 
 export const PropertyAdd = () => {
     const { createHandler } = useContext(PropertyContext);
-    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         title: '',
         type: '',

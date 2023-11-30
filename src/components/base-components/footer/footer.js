@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react";
 import { Modal, ModalBody } from 'react-bootstrap';
+
 import { getPropertyPhotos } from "../../../api/data";
 
 import styles from "./footer.module.css"
@@ -64,15 +65,17 @@ export const Footer = () => {
                     </div>
                     <div className={`col-lg-3 col-md-6 ${styles['items-centered']}`}>
                         <h5 className="text-white mb-4">Quick Links</h5>
-                        <Link className={`btn text-white-50 ${styles['btn-link']}`} to="/" onClick={() => window.scroll(0, 0)}>
-                            Home
-                        </Link>
-                        <Link className={`btn text-white-50 ${styles['btn-link']}`} to="/contact" onClick={() => window.scroll(0, 0)}>
-                            Contact Us
-                        </Link>
-                        <Link className={`btn text-white-50 ${styles['btn-link']}`} to="/catalog" onClick={() => window.scroll(0, 0)}>
-                            Catalog
-                        </Link>
+                        <div>
+                            <Link className={`btn text-white-50 ${styles['btn-link']}`} to="/" onClick={() => window.scroll(0, 0)}>
+                                Home
+                            </Link>
+                            <Link className={`btn text-white-50 ${styles['btn-link']}`} to="/contact" onClick={() => window.scroll(0, 0)}>
+                                Contact Us
+                            </Link>
+                            <Link className={`btn text-white-50 ${styles['btn-link']}`} to="/catalog" onClick={() => window.scroll(0, 0)}>
+                                Catalog
+                            </Link>
+                        </div>
                     </div>
                     <div className="col-lg-3 col-md-6">
                         <h5 className="text-white mb-4">Photo Gallery</h5>
