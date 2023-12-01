@@ -38,9 +38,14 @@ export const PropertyProvider = ({ children }) => {
             })
     }
 
+    const refreshDetails = () => {
+        getAllProperties()
+            .then(props => setProperties(props))
+    }
+
 
     return (
-        <PropertyContext.Provider value={{properties, createHandler, editHandler, deleteHandler}}>
+        <PropertyContext.Provider value={{properties, createHandler, editHandler, deleteHandler, refreshDetails}}>
             {children}
         </PropertyContext.Provider>
     )

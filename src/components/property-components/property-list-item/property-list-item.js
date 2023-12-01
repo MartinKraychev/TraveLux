@@ -24,7 +24,11 @@ export const PropertyListItem = ({ property }) => {
                     <div className={styles['container']}>
                         <div className={styles['rating-display']}>
                             {property.average_rating > 0 ? <StarRating rating={property.average_rating} />
-                                : "Not rated yet"}
+                                : <div className={styles['container-div']}>
+                                    <p className={styles['container-p']}>This property is</p>
+                                    <p className={styles['container-p']}>not yet rated</p>
+                                </div>
+                            }
                         </div>
                         <div className={`p-4 pb-0 ${styles['centered']}`}>
                             <h3 className="text-primary mb-3">
@@ -34,7 +38,7 @@ export const PropertyListItem = ({ property }) => {
 
                             <p>
                                 <i className={`fa fa-map-marker-alt me-2 ${styles['p-black']}`} />
-                                <p className={styles['p-black']}>{property.address}, </p>
+                                <p className={styles['p-black']}>{property.address}</p>
                                 <p className={styles['p-black']}>{property.location}</p>
                             </p>
                         </div>

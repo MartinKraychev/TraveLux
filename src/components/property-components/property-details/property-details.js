@@ -13,7 +13,7 @@ export const PropertyDetails = () => {
     const { propertyId } = useParams()
     const [property, setProperty] = useState({})
     const [rateAvailability, setRateAvailability] = useState(false)
-    const { deleteHandler } = useContext(PropertyContext)
+    const { deleteHandler, refreshDetails } = useContext(PropertyContext)
     const [showConfirmation, setShowConfirmation] = useState(false);
     const { isAuthenticated, auth } = useContext(AuthContext)
     const [selectedRating, setSelectedRating] = useState('');
@@ -76,8 +76,8 @@ export const PropertyDetails = () => {
                 setRateAvailability(false);
                 getPropertyById(propertyId)
                     .then(property => setProperty(property));
+                refreshDetails()
             });
-
     }
 
     return (

@@ -55,6 +55,5 @@ function App() {
 
 export default App;
 // Check functionality and edge cases
-// deployment
+// deployment, env variables front and back end
 // docs
-// contact page, send email
