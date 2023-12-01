@@ -59,6 +59,12 @@ export const PropertyEdit = () => {
             setErrorMessage('All fields are required!');
             return;
         }
+        
+        if (img.length > 255) {
+            setErrorMessage('Image URL must not exceed 255 characters.');
+            return;
+        }
+
         editHandler(propertyId, {title, type, image_url:img, price_per_night:price, location, address, summary})
 
     };
