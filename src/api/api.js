@@ -1,4 +1,4 @@
-const host = 'http://127.0.0.1:8000';
+const host = 'https://travelux-ooow2st62q-nw.a.run.app';
 
 async function request(url, options) {
     try {
