@@ -15,7 +15,13 @@ Each components comes with its own css module.
 
 Users can login, register and logout.
 
-The main collection is Properties and users have full CRUD on that. The project has public and private part. Users can interact with properties by giving ratings
+The main collection is Properties and users have full CRUD on that. 
+
+The project has public and private part. 
+
+Users can interact with properties by giving ratings.
+
+Property owners can't rate own properties. Once property is rated by user, the same user can't rate the same property again.
 
 ## API Reference
 
