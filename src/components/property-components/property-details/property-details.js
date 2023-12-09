@@ -103,10 +103,10 @@ export const PropertyDetails = () => {
                         </h3>
                         <p className={styles['p-black']}>Price per night: ${property.price_per_night}</p>
 
-                        <p>
+                        <div>
                             <i className={`fa fa-map-marker-alt me-2 ${styles['p-black']}`} />
                             <p className={styles['p-black']}>{property.address}, {property.location}</p>
-                        </p>
+                        </div>
                         <p className={styles['p-black']}>
                             If you want to book, don't hesitate and call <span className="d-block h6 mb-2">{property.owner_number}</span>
                         </p>

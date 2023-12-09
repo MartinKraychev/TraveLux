@@ -56,4 +56,6 @@ function App() {
 export default App;
 // Check functionality and edge cases
 // deployment, env variables front and back end
+// fix Brevo/ email
+// do we need or not need cors headers?
 // docs

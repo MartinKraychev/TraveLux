@@ -1,4 +1,4 @@
-const host = 'http://127.0.0.1:8000';
+const host = 'https://travelux-ooow2st62q-nw.a.run.app';
 
 async function request(url, options) {
     try {
@@ -23,7 +23,11 @@ function createOptions(method = 'get', data) {
 
     const options = {
         method,
-        headers: {}
+        headers: {
+                    'Access-Control-Allow-Origin': 'http://localhost:3000', 
+                    'Access-Control-Allow-Methods': "POST, GET, PUT", 
+                    'Access-Control-Allow-Headers': "Content-Type", 
+                    'Origin': 'http://localhost:3000'},
     }
 
     if (data !== undefined) {

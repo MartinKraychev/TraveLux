@@ -18,8 +18,9 @@ export const Contact = () => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
-
-
+    
+    const emailApiKey = process.env.REACT_APP_EMAIL_API_KEY
+    const emailReceiver = process.env.REACT_APP_EMAIL_RECEIVER
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -32,13 +33,12 @@ export const Contact = () => {
             return;
         }
 
-
         const options = {
             method: "post",
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
-                'api-key': "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"
+                'api-key': emailApiKey
             },
             body: JSON.stringify({
                 "sender": {
@@ -46,11 +46,11 @@ export const Contact = () => {
                     "email": email
                 },
                 "to": [{
-                    "email": "martinkraychev987@gmail.com",
+                    "email": emailReceiver,
                     "name": "Martin Kraychev"
                 }],
                 "subject": subject,
-                "htmlContent": `<html><head></head><body><p>Hello,</p>${message}</p></body></html>`
+                "htmlContent": message
             })
         }
 
