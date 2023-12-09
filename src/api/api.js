@@ -24,10 +24,10 @@ function createOptions(method = 'get', data) {
     const options = {
         method,
         headers: {
-                    'Access-Control-Allow-Origin': 'https://marvelous-dusk-809212.netlify.app/', 
+                    'Access-Control-Allow-Origin': 'https://marvelous-dusk-809212.netlify.app', 
                     'Access-Control-Allow-Methods': "POST, GET, PUT, DELETE", 
                     'Access-Control-Allow-Headers': "Content-Type", 
-                    'Origin': 'https://marvelous-dusk-809212.netlify.app/'},
+                    'Origin': 'https://marvelous-dusk-809212.netlify.app'},
     }
 
     if (data !== undefined) {
