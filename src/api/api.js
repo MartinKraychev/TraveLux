@@ -1,4 +1,4 @@
-const host = 'https://travelux-ooow2st62q-nw.a.run.app';
+const host = 'http://127.0.0.1:8000';
 
 async function request(url, options) {
     try {
@@ -60,15 +60,15 @@ export async function del(url) {
 }
 
 export async function login(email, password) {
-    const result = await post('/auth/login/', {email, password})
+    const result = await post('/auth/login', {email, password})
     return result
 }
 
 export async function register(email, password, phoneNumber) {
-    const result = await post('/auth/register/', {email, password, phone_number:phoneNumber})
+    const result = await post('/auth/register', {email, password, phone_number:phoneNumber})
     return result
 }
 
 export async function logout() {
-    await post('/auth/logout/')
+    await post('/auth/logout')
 }
