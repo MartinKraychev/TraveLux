@@ -5,7 +5,7 @@ It's configured to interact with the corresponding server, available at https://
 
 Both the client and server are already deployed and there is no need for any setup.
 
-You can access the app [here](https://marvelous-dusk-809212.netlify.app/)
+You can access the app [here](https://marvelous-dusk-809212.netlify.app/). Netlify is used for the client deployment.
 
 ## App structure and functionality
 
