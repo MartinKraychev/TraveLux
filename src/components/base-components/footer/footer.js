@@ -105,7 +105,7 @@ export const Footer = () => {
             </div>
             {/* Modal for displaying larger image */}
             <Modal show={showModal} onHide={handleCloseModal} centered>
-                <ModalBody>
+                <ModalBody className="d-flex justify-content-center align-items-center">
                     <img className="img-fluid" src={selectedPhoto} alt="" />
                 </ModalBody>
             </Modal>

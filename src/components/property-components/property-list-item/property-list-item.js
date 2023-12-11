@@ -11,7 +11,7 @@ export const PropertyListItem = ({ property }) => {
             data-wow-delay="0.1s"
         >   <Link to={`/catalog/${property.id}`}>
                 <div className={`rounded overflow-hidden ${styles['property-item']}`}>
-                    <div className="position-relative overflow-hidden">
+                    <div className={`position-relative overflow-hidden ${styles['img-container']}`}>
                         <img
                             className={`img-fluid ${styles['img']}`}
                             src={property.image_url}

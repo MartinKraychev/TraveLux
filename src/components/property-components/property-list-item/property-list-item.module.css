@@ -4,8 +4,11 @@
 
 .img {
     transition: .5s;
-    height: 200px;
     width: 100%;
+}
+
+.img-container {
+    height: 200px;
 }
 
 .property-item:hover img {
