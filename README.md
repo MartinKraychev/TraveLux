@@ -1,83 +1,78 @@
-# Getting Started with Create React App
+# Travelux frontend app with React, HTML and CSS
+An app similar to Airbnb, designed for users to explore rental properties or list their own.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+It's configured to interact with the corresponding server, available at https://github.com/MartinKraychev/TraveLux-Backend.
 
-## Available Scripts
+Both the client and server are already deployed and there is no need for any setup.
 
-In the project directory, you can run:
+You can access the app [here](https://marvelous-dusk-809212.netlify.app/). Netlify is used for the client deployment.
 
-### `npm start`
+## App structure and functionality
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+JW Token is used for authentication.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Each components comes with its own css module.
 
-### `npm test`
+Users can login, register and logout.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The main collection is Properties and users have full CRUD on that. 
 
-### `npm run build`
+The project has public and private part. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Users can interact with properties by giving ratings.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Property owners can't rate own properties. Once property is rated by user, the same user can't rate the same property again.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## API Reference
 
-### `npm run eject`
+The backend is written with FastAPI and it comes with swagger docs.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To see all the api calls the app does, you can check the server api docs [here](https://travelux-ooow2st62q-nw.a.run.app/docs). 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## To install locally
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+If you would like to install this project locally do the following:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Clone the project
 
-## Learn More
+```bash
+  git clone https://github.com/MartinKraychev/TraveLux
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Go to the project directory
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+  cd Travelux
+```
 
-### Code Splitting
+Install dependancies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+  npm install
+```
 
-### Analyzing the Bundle Size
+Create .env file in the main root containing 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+REACT_APP_EMAIL_API_KEY = {api key to sending emails , I am using Brevo for this service. You need to create one yourself}
 
-### Making a Progressive Web App
+REACT_APP_EMAIL_RECEIVER = {Email receiver}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Start the project
 
-### Advanced Configuration
+```bash
+  npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-TODO:
-    Footer:
-        scroll on top
-        load random photos
-    NavBar:
-        hide/show nav items for different user types
-    Contact:
-        google maps and email form
-    Details :
-        Edit and delete btns
+
+
+
+
 
 
