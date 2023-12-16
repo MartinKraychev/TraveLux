@@ -124,3 +124,41 @@
     align-items: center;
     justify-content: center;
 }
+
+@media (max-width: 780px) {
+    .footer {
+        padding-bottom: 10px;
+    }
+
+    .footer-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .items-centered,
+    .items-left {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .btn-social,
+    .btn-link {
+        margin-bottom: 3px;
+    }
+
+    .footer-img {
+        height: 50px;
+    }
+
+    .spinner {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+@media (max-width: 780px) and (min-width: 400px) {
+    .footer-img {
+        width: 100px;
+        height: 50px;
+    }
+}
