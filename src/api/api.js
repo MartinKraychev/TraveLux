@@ -1,4 +1,4 @@
-const host = 'https://travelux-ooow2st62q-nw.a.run.app';
+const host = process.env.REACT_APP_HOST_URL;
 
 async function request(url, options) {
     try {
