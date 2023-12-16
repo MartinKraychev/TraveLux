@@ -41,6 +41,7 @@ export const PropertyEdit = () => {
                     summary: property.summary,
                 });
             })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const handleChange = (e) => {
@@ -65,7 +66,7 @@ export const PropertyEdit = () => {
             return;
         }
 
-        editHandler(propertyId, {title, type, image_url:img, price_per_night:price, location, address, summary})
+        editHandler(Number(propertyId), {title, type, image_url:img, price_per_night:price, location, address, summary})
 
     };
     return (

@@ -93,7 +93,7 @@ export const PropertyAdd = () => {
                         type="text"
                         id="img"
                         name="img"
-                        placeholder="Upload a photo..."
+                        placeholder="Provide an image url"
                         value={formData.img}
                         onChange={handleChange}
                     />

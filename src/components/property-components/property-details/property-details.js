@@ -35,6 +35,7 @@ export const PropertyDetails = () => {
                 }
                 setProperty(property)
             })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [propertyId])
 
     useEffect(() => {
@@ -60,7 +61,7 @@ export const PropertyDetails = () => {
     };
 
     const confirmDelete = async () => {
-        deleteHandler(propertyId)
+        deleteHandler(Number(propertyId))
     }
 
     const onSubmit = (event) => {

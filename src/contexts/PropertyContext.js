@@ -25,7 +25,7 @@ export const PropertyProvider = ({ children }) => {
     const editHandler = (propertyId, data) => {
         editProperty(propertyId, data)
             .then((property) => {
-                setProperties(oldProperties => oldProperties.map(p => p.id == propertyId ? property : p))
+                setProperties(oldProperties => oldProperties.map(p => p.id === propertyId ? property : p))
                 navigate(`/catalog/${propertyId}`)
             })
     }
@@ -33,7 +33,7 @@ export const PropertyProvider = ({ children }) => {
     const deleteHandler = (propertyId) => {
         deleteProperty(propertyId)
             .then(() => {
-                setProperties(oldProperties => oldProperties.filter(prop => prop.id != propertyId))
+                setProperties(oldProperties => oldProperties.filter(prop => prop.id !== propertyId))
                 navigate("/catalog")
             })
     }
