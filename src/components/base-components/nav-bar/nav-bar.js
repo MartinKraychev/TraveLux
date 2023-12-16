@@ -54,7 +54,6 @@ export const NavBar = () => {
                             Add Property
                         </Link>}
                     </div>
-
                 </div>
             </nav>
         </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { useParams, useNavigate} from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import { getPropertyById } from '../../../api/data';
 import { PropertyContext } from "../../../contexts/PropertyContext";
@@ -41,7 +41,7 @@ export const PropertyEdit = () => {
                     summary: property.summary,
                 });
             })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const handleChange = (e) => {
@@ -60,13 +60,13 @@ export const PropertyEdit = () => {
             setErrorMessage('All fields are required!');
             return;
         }
-        
+
         if (img.length > 255) {
             setErrorMessage('Image URL must not exceed 255 characters.');
             return;
         }
 
-        editHandler(Number(propertyId), {title, type, image_url:img, price_per_night:price, location, address, summary})
+        editHandler(Number(propertyId), { title, type, image_url: img, price_per_night: price, location, address, summary })
 
     };
     return (

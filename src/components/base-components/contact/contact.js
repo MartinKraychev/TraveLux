@@ -18,7 +18,7 @@ export const Contact = () => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
-    
+
     const emailApiKey = process.env.REACT_APP_EMAIL_API_KEY
     const emailReceiver = process.env.REACT_APP_EMAIL_RECEIVER
 

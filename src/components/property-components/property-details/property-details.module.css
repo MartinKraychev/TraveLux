@@ -115,8 +115,8 @@
 }
 
 .edit-button {
-  background-color: #4caf50; 
-  color: #fff; 
+  background-color: #4caf50;
+  color: #fff;
   border: none;
   padding: 8px 16px;
   margin-right: 5px;
@@ -129,8 +129,8 @@
 }
 
 .delete-button {
-  background-color: #f44336; 
-  color: #fff; 
+  background-color: #f44336;
+  color: #fff;
   border: none;
   padding: 8px 16px;
   text-align: center;
@@ -141,7 +141,8 @@
   cursor: pointer;
 }
 
-.edit-button:hover, .delete-button:hover {
+.edit-button:hover,
+.delete-button:hover {
   opacity: 0.8;
 }
 
@@ -153,8 +154,8 @@
 }
 
 .rate-button {
-  background-color: #4caf50; 
-  color: #fff; 
+  background-color: #4caf50;
+  color: #fff;
   border: none;
   padding: 10px 20px;
   text-align: center;
@@ -166,6 +167,6 @@
 }
 
 .rate-button:hover {
-  opacity: 0.8; 
+  opacity: 0.8;
 
 }

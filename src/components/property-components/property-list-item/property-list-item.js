@@ -15,7 +15,7 @@ export const PropertyListItem = ({ property }) => {
                         <img
                             className={`img-fluid ${styles['img']}`}
                             src={property.image_url}
-                            alt=""
+                            alt="property-img"
                         />
                         <div className="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
                             {property.type}

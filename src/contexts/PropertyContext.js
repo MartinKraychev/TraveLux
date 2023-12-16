@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect, createContext } from "react";
 
-import { createProperty, editProperty, deleteProperty, getAllProperties  } from "../api/data";
+import { createProperty, editProperty, deleteProperty, getAllProperties } from "../api/data";
 
 export const PropertyContext = createContext()
 
@@ -45,7 +45,7 @@ export const PropertyProvider = ({ children }) => {
 
 
     return (
-        <PropertyContext.Provider value={{properties, createHandler, editHandler, deleteHandler, refreshDetails}}>
+        <PropertyContext.Provider value={{ properties, createHandler, editHandler, deleteHandler, refreshDetails }}>
             {children}
         </PropertyContext.Provider>
     )

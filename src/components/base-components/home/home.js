@@ -10,7 +10,7 @@ export const Home = () => {
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                             <div className={`position-relative overflow-hidden p-5 pe-0 ${styles['about-img-left']}`}>
-                                <img className={`img-fluid w-100 ${styles['img-left']}`} src="img/about.jpg" alt="home-img-1"/>
+                                <img className={`img-fluid w-100 ${styles['img-left']}`} src="img/about.jpg" alt="home-img-1" />
                             </div>
                         </div>
                         <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
@@ -40,11 +40,11 @@ export const Home = () => {
                 <div className="row g-0 align-items-center flex-column-reverse flex-md-row">
                     <div className="col-md-6 p-5 mt-lg-5">
                         <h1 className="mb-4">
-                        Where Agents and Adventurers Meet
+                            Where Agents and Adventurers Meet
                         </h1>
                         <p className="animated fadeIn mb-4 pb-2">
-                        Our platform is your one-stop destination for both property agents to showcase their premium accommodations and travelers to discover, 
-                        book, and experience their dream getaways.
+                            Our platform is your one-stop destination for both property agents to showcase their premium accommodations and travelers to discover,
+                            book, and experience their dream getaways.
                         </p>
                         <Link to="/catalog" className={`btn btn-primary py-3 px-5 me-3 animated fadeIn ${styles['colored-btn']}`}>
                             Get Started
