@@ -5,3 +5,9 @@
 .search-box {
     width: 66%;
 }
+
+@media (max-width: 780px) {
+    .search-box {
+        width: 100%;
+    }
+}
