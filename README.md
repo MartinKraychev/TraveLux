@@ -57,6 +57,8 @@ Create .env file in the main root containing
 REACT_APP_EMAIL_API_KEY = {api key to sending emails , I am using Brevo for this service. You need to create one yourself}
 
 REACT_APP_EMAIL_RECEIVER = {Email receiver}
+
+REACT_APP_HOST_URL = https://travelux-ooow2st62q-nw.a.run.app
 ```
 
 Start the project
