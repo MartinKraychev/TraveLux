@@ -6,6 +6,7 @@ import { PropertyContext } from "../../../contexts/PropertyContext";
 
 import styles from "./property-catalog-list.module.css"
 
+
 export const PropertyCatalogList = () => {
     const { properties } = useContext(PropertyContext)
     const [filteredProperties, setFilteredProperties] = useState(properties);
@@ -64,7 +65,10 @@ export const PropertyCatalogList = () => {
                     <div className="tab-content">
                         <div id="tab-1" className="tab-pane fade show p-0 active">
                             <div className="row g-4">
-                                    {filteredProperties.map(property => <PropertyListItem key={property.id} property={property} />)}
+                                    {filteredProperties.length > 0 ? filteredProperties.map(property => <PropertyListItem key={property.id} property={property} />) 
+                                                                   : <div className={`${styles['spinner-container']}`}>
+                                                                        <div className={`${styles['spinner']} ${styles['green']}`}> </div>
+                                                                     </div>}
                             </div>
                         </div>
                     </div>

@@ -48,20 +48,6 @@ export const Footer = () => {
                             <i className="fa fa-envelope me-3" />
                             martinkraychev987@gmail.com
                         </p>
-                        <div className="d-flex pt-2">
-                            <a className={`btn btn-outline-light ${styles['btn-social']}`} href="https://twitter.com">
-                                <i className="fab fa-twitter" />
-                            </a>
-                            <a className={`btn btn-outline-light ${styles['btn-social']}`} href="https://facebook.com">
-                                <i className="fab fa-facebook-f" />
-                            </a>
-                            <a className={`btn btn-outline-light ${styles['btn-social']}`} href="https://youtube.com">
-                                <i className="fab fa-youtube" />
-                            </a>
-                            <a className={`btn btn-outline-light ${styles['btn-social']}`} href="https://linkedin.com">
-                                <i className="fab fa-linkedin-in" />
-                            </a>
-                        </div>
                     </div>
                     <div className={`col-lg-3 col-md-6 ${styles['items-centered']}`}>
                         <h5 className="text-white mb-4">Quick Links</h5>
@@ -78,18 +64,21 @@ export const Footer = () => {
                         </div>
                     </div>
                     <div className="col-lg-3 col-md-6">
-                        <h5 className="text-white mb-4">Photo Gallery</h5>
+                        <h5 className={`text-white mb-4 ${styles['centered']}`}>Photo Gallery</h5>
                         <div className="row g-2 pt-2">
-                            {photos.map((photoUrl, index) => (
+                            {photos.length > 0 ? photos.map((photoUrl, index) => (
                                 <div key={index} className="col-4">
                                     <img
-                                        className="img-fluid rounded bg-light p-1"
+                                        className={`img-fluid rounded bg-light p-1 ${styles['footer-img']}`}
                                         src={photoUrl}
                                         alt=""
                                         onClick={() => handleImageClick(photoUrl)}
                                     />
+                                </div>))
+                                : <div className={`${styles['spinner-container']}`}>
+                                    <div className={`${styles['spinner']} ${styles['green']}`}> </div>
                                 </div>
-                            ))}
+                            }
                         </div>
                     </div>
                 </div>
@@ -98,7 +87,21 @@ export const Footer = () => {
                 <div className={styles['copyright']}>
                     <div className="row">
                         <div className={styles['footer-end']}>
-                            TraveLux
+                            <div className={`d-flex pt-2 ${styles['footer-centered']}`}>
+                                <a className={`btn btn-outline-light ${styles['btn-social']}`} href="https://twitter.com">
+                                    <i className="fab fa-twitter" />
+                                </a>
+                                <a className={`btn btn-outline-light ${styles['btn-social']}`} href="https://facebook.com">
+                                    <i className="fab fa-facebook-f" />
+                                </a>
+                                <a className={`btn btn-outline-light ${styles['btn-social']}`} href="https://youtube.com">
+                                    <i className="fab fa-youtube" />
+                                </a>
+                                <a className={`btn btn-outline-light ${styles['btn-social']}`} href="https://linkedin.com">
+                                    <i className="fab fa-linkedin-in" />
+                                </a>
+                            </div>
+                            <p>TraveLux</p>
                         </div>
                     </div>
                 </div>

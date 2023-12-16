@@ -1,3 +1,33 @@
 .container {
     text-align: center;
 }
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    display: inline-block;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid #00B98E;
+    animation: spin 1s linear infinite;
+    width: 70px;
+    height: 70px;
+}
+
+.green {
+    color: #00B98E;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

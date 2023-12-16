@@ -34,7 +34,10 @@ export const PropertyUserList = () => {
                 <div className="tab-content">
                     <div id="tab-1" className="tab-pane fade show p-0 active">
                         <div className="row g-4">
-                            {properties.map(property => <PropertyListItem key={property.id} property={property} />)}
+                            {properties.length > 0 ? properties.map(property => <PropertyListItem key={property.id} property={property} />)
+                                                   : <div className={`${styles['spinner-container']}`}>
+                                                        <div className={`${styles['spinner']} ${styles['green']}`}></div>
+                                                     </div>}
                         </div>
                     </div>
                 </div>
