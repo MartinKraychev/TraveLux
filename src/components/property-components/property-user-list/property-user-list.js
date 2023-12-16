@@ -35,9 +35,7 @@ export const PropertyUserList = () => {
                     <div id="tab-1" className="tab-pane fade show p-0 active">
                         <div className="row g-4">
                             {properties.length > 0 ? properties.map(property => <PropertyListItem key={property.id} property={property} />)
-                                                   : <div className={`${styles['spinner-container']}`}>
-                                                        <div className={`${styles['spinner']} ${styles['green']}`}></div>
-                                                     </div>}
+                                                   : <p className={`${styles['no-properties-text']}`}>You don't have any properties yet</p>}
                         </div>
                     </div>
                 </div>
